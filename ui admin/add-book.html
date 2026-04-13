@@ -20,14 +20,6 @@
           </a>
         </div>
 
-        <!-- HUBERGER -->
-        <input type="checkbox" id="navToggle" class="nav-toggle" />
-        <label for="navToggle" class="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </label>
-
         <!-- NAVIGATION -->
         <nav class="nav-menu">
           <ul>
@@ -63,6 +55,13 @@
         <!-- HEADER -->
         <header class="topbar">
           <h1>Add Book</h1>
+          <!-- HUBERGER -->
+          <input type="checkbox" id="navToggle" class="nav-toggle" />
+          <label for="navToggle" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>          
         </header>
 
         <!-- MAIN -->
@@ -242,7 +241,7 @@
 
               <!-- ACTION -->
               <div class="form-actions">
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-primary" onclick="addBook()">
                   <span class="icon-add">+</span> Add
                 </button>
 
@@ -264,6 +263,6 @@
 
     </div>
 
-    <script src="../js/script-admin.js"></script>
+    <script src="../js/script.js"></script>
   </body>
 </html>

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../css/style-admin.css" />
   </head>
   <body>
-    <div class="container"></div>    
+    <div class="container">
 
       <!-- ================= SIDEBAR ================= -->
       <aside class="sidebar">
@@ -18,14 +18,6 @@
             <img src="../src/logo mikro putih.webp" alt="Logo Mikro" />
           </a>
         </div>
-
-        <!-- HUBERGER -->
-        <input type="checkbox" id="navToggle" class="nav-toggle" />
-        <label for="navToggle" class="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </label>
 
         <!-- NAVIGATION -->
         <nav class="nav-menu">
@@ -55,15 +47,19 @@
 
       </aside>
 
+      <div class="overlay" onclick="toggleSidebar()"></div>
 
       <!-- ================= MAIN CONTENT ================= -->
       <div class="main-content">
+
         <header class="topbar">
+          <span class="menu-toggle" onclick="toggleSidebar()">☰</span>
           <h1>Galeri Book</h1>
         </header>
 
         <main>
           <section class="user-gallery">
+
             <div class="gallery-header">
               <h2>Koleksi Buku</h2>
               <p>Total: <strong id="dataCount">0</strong> buku</p>
@@ -84,13 +80,12 @@
 
             <!-- GRID BOOK -->
             <div class="book-grid" id="bookGrid"></div>
+
           </section>
         </main>
-      
-      </div>
-    
-    </div>
 
-  <script src="../js/script-admin.js"></script>
+      </div>
+    </div>
+    <script src="../js/script.js"></script>
   </body>
 </html>
