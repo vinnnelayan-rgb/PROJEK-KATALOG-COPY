@@ -1,0 +1,510 @@
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* ================= GLOBAL ================= */
+body {
+  background: #1e1e1e;
+  color: #fff;
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+
+  background: linear-gradient(180deg, #111, #1a1a1a);
+  border-right: 1px solid #333;
+  box-shadow: 5px 0 20px rgba(0, 0, 0, 0.3);
+
+  overflow-y: auto;
+}
+
+/* LOGO */
+.logo {
+  text-align: center;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #333;
+}
+
+.logo img {
+  width: 160px;
+  transition: 0.3s;
+}
+
+/* NAVIGATION */
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.nav-menu ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
+}
+
+.nav-menu li {
+  width: 100%;
+}
+
+.nav-menu a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 12px 14px;
+  border-radius: 10px;
+
+  color: #ccc;
+  font-size: 14px;
+  text-decoration: none;
+
+  transition: 0.25s;
+}
+
+.nav-menu a span {
+  font-size: 18px;
+}
+
+/* NAV HOVER */
+.nav-menu a:hover {
+  background: #2a2a2a;
+  color: #fff;
+  transform: translateX(5px);
+}
+
+/* ACTIVE */
+.nav-menu a.active {
+  background: linear-gradient(135deg, #00bcd4, #0097a7);
+  color: #fff;
+  box-shadow: 0 5px 15px rgba(0, 188, 212, 0.3);
+}
+
+/* LOGOUT (BOTTOM) */
+.nav-menu ul li:last-child {
+  margin-top: auto;
+}
+
+.menu-toggle{
+  display: none;
+}
+
+/* ================= MAIN LAYOUT ================= */
+.main-content {
+  margin-left: 250px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* ================= TOPBAR ================= */
+.topbar {
+  padding: 15px 25px;
+  background: #222;
+  border-bottom: 1px solid #333;
+}
+
+/* ================= MAIN CONTENT ================= */
+main {
+  padding: 30px;
+}
+
+/* ================= CARD (DASHBOARD) ================= */
+.card {
+  background: #2a2a2a;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ================= FORM (ADD BOOK) ================= */
+.form-card {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+
+  background: #2a2a2a;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* FULL WIDTH */
+.form-group.full {
+  grid-column: span 2;
+}
+
+/* FORM GROUP */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+/* INPUT */
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #444;
+
+  background: #1e1e1e;
+  color: #fff;
+
+  outline: none;
+  transition: 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #00bcd4;
+  box-shadow: 0 0 5px #00bcd4;
+
+  width: 100%;      
+  max-width: 100%;
+}
+
+/* TEXTAREA */
+textarea {
+  resize: none;
+}
+
+/* ================= BUTTON ================= */
+.form-actions {
+  grid-column: span 2;
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.btn {
+  padding: 12px 18px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+/* PRIMARY */
+.btn-primary {
+  background: linear-gradient(135deg, #00bcd4, #0097a7);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 188, 212, 0.4);
+}
+
+/* OUTLINE */
+.btn-outline {
+  background: transparent;
+  border: 1px solid #888;
+  color: #ccc;
+}
+
+.btn-outline:hover {
+  background: #333;
+}
+
+/* ICON */
+.icon-add,
+.icon-reset {
+  margin-right: 5px;
+}
+
+.icon-add {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* ================= GALLERY ================= */
+.gallery-header {
+  margin-bottom: 20px;
+}
+
+.gallery-header h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.gallery-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* GRID */
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+/* CARD */
+.book-card {
+  display: flex;
+  flex-direction: column;
+
+  background: #2a2a2a;
+  border-radius: 15px;
+  overflow: hidden;
+
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: 0.3s;
+}
+
+.book-card:hover {
+  transform: translateY(-5px);
+}
+
+/* IMAGE */
+.book-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+/* INFO */
+.book-info {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.book-info h3 {
+  font-size: 16px;
+}
+
+/* ACTION BUTTON */
+.book-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.book-actions button {
+  flex: 1;
+  padding: 8px;
+
+  border-radius: 8px;
+  border: none;
+
+  font-size: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* DETAIL */
+.btn-detail {
+  background: #3b82f6;
+  color: #fff;
+}
+
+.btn-detail:hover {
+  background: #2563eb;
+}
+
+/* EDIT */
+.btn-edit {
+  background: #f59e0b;
+  color: #fff;
+}
+
+.btn-edit:hover {
+  background: #d97706;
+}
+
+/* DELETE */
+.btn-delete {
+  background: #ef4444;
+  color: #fff;
+}
+
+.btn-delete:hover {
+  background: #dc2626;
+}
+
+/* ================= DELETE ALL ================= */
+#btnHapusSemua {
+  padding: 12px 18px;
+  border-radius: 10px;
+  border: none;
+
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  box-shadow: 0 5px 15px rgba(239, 68, 68, 0.3);
+
+  transition: 0.3s;
+}
+
+#btnHapusSemua:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(239, 68, 68, 0.5);
+}
+
+#btnHapusSemua:active {
+  transform: scale(0.95);
+}
+
+/* DISABLED */
+#btnHapusSemua.disabled {
+  background: #555;
+  cursor: not-allowed;
+  box-shadow: none;
+  opacity: 0.6;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* ===== TABLET (≤1024px) ===== */
+@media (max-width: 1024px) {
+  .form-card {
+    grid-template-columns: 1fr; /* form jadi 1 kolom */
+  }
+
+  .form-group.full {
+    grid-column: span 1;
+  }
+
+  .book-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}
+
+
+/* ===== MOBILE (≤768px) ===== */
+@media (max-width: 768px) {
+
+  /* SIDEBAR HIDDEN */
+  .sidebar {
+    transform: translateX(-100%);
+    transition: 0.3s ease;
+    z-index: 1000;
+  }
+
+  .sidebar.active {
+    transform: translateX(0);
+  }
+
+  /* OVERLAY (biar keren + klik luar nutup) */
+  .overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(2px);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
+    z-index: 900;
+  }
+
+  .overlay.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  /* MAIN FULL */
+  .main-content {
+    margin-left: 0;
+  }
+
+  /* TOPBAR */
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* HAMBURGER */
+  .menu-toggle {
+    display: block;
+    font-size: 22px;
+    cursor: pointer;
+  }
+
+  /* FORM */
+  .form-card {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+
+  /* BUTTON STACK */
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  /* GRID GALERI */
+  .book-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .book-card img {
+    height: 200px;
+  }
+}
+
+
+/* ===== SMALL MOBILE (≤480px) ===== */
+@media (max-width: 480px) {
+
+  main {
+    padding: 20px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .topbar h1 {
+    font-size: 16px;
+  }
+
+  /* GALERI 1 KOLOM */
+  .book-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .book-card img {
+    height: 180px;
+  }
+}

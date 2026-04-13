@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Katalog Perpustakaan</title>
+    <link rel="stylesheet" href="../css/style-admin.css" />
+  </head>
+
+  <body>
+    <div class="container">
+
+      <!-- ================= SIDEBAR ================= -->
+      <aside class="sidebar">
+
+        <!-- LOGO -->
+        <div class="logo">
+          <a href="/ui admin/home-admin.html">
+            <img src="../src/logo mikro putih.webp" alt="Logo Mikro" />
+          </a>
+        </div>
+
+        <!-- HUBERGER -->
+        <input type="checkbox" id="navToggle" class="nav-toggle" />
+        <label for="navToggle" class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+
+        <!-- NAVIGATION -->
+        <nav class="nav-menu">
+          <ul>
+            <li>
+              <a href="/ui admin/home-admin.html" class="active">
+                <span>🏠</span> Dashboard
+              </a>
+            </li>
+            <li>
+              <a href="/ui admin/add-book.html">
+                <span>📚</span> Add Book
+              </a>
+            </li>
+            <li>
+              <a href="/ui admin/galeri-admin.html">
+                <span>🖼️</span> Galeri
+              </a>
+            </li>
+            <li>
+              <a href="../ui user/index.html">
+                <span>🚪</span> Logout
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+      </aside>
+
+
+      <!-- ================= MAIN CONTENT ================= -->
+      <div class="main-content">
+
+        <!-- HEADER -->
+        <header class="topbar">
+          <h1>Dashboard Admin</h1>
+        </header>
+
+        <!-- MAIN -->
+        <main>
+
+          <!-- CARD WELCOME -->
+          <section class="card">
+            <h2>Halo Admin 👋</h2>
+            <p>Selamat datang di sistem katalog perpustakaan.</p>
+          </section>
+
+        </main>
+
+      </div>
+
+    </div>
+
+    <script src="../js/script-admin.js"></script>
+  </body>
+</html>
