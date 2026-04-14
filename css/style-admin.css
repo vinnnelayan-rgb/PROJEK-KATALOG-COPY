@@ -154,7 +154,8 @@ main {
   padding: 30px;
 }
 
-/* ================= CARD (DASHBOARD) ================= */
+
+/* ================= CARD ================= */
 .card {
   background: #2a2a2a;
   padding: 25px;
@@ -163,26 +164,11 @@ main {
 }
 
 /* ================= FORM (ADD BOOK) ================= */
-.form-card {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
 
-  background: #2a2a2a;
-  padding: 30px;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-}
-
-/* FULL WIDTH */
-.form-group.full {
-  grid-column: span 2;
-}
-
-/* FORM GROUP */
 .form-group {
   display: flex;
   flex-direction: column;
+  margin-bottom: 10px;
 }
 
 .form-group label {
@@ -223,10 +209,10 @@ textarea {
 
 /* ================= BUTTON ================= */
 .form-actions {
-  grid-column: span 2;
   display: flex;
   gap: 15px;
-  margin-top: 10px;
+  margin-top: 30px;
+  justify-content: right;
 }
 
 .btn {
@@ -238,10 +224,19 @@ textarea {
   transition: 0.3s;
 }
 
+.btn span {
+  margin-right: 5px;
+}
+
 /* PRIMARY */
 .btn-primary {
   background: linear-gradient(135deg, #00bcd4, #0097a7);
   color: #fff;
+}
+
+.btn-primary span{
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .btn-primary:hover {
@@ -257,19 +252,10 @@ textarea {
 }
 
 .btn-outline:hover {
+  transform: translateY(-2px);
   background: #333;
 }
 
-/* ICON */
-.icon-add,
-.icon-reset {
-  margin-right: 5px;
-}
-
-.icon-add {
-  font-size: 20px;
-  font-weight: 700;
-}
 
 /* ================= GALLERY ================= */
 .gallery-header {
@@ -279,12 +265,6 @@ textarea {
 .gallery-header h2 {
   font-size: 22px;
   margin-bottom: 10px;
-}
-
-.gallery-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 /* GRID */
@@ -387,17 +367,6 @@ textarea {
   background: #dc2626;
 }
 
-.status-badge {
-  display: inline-block;
-  padding: 4px 10px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-.status-tersedia { background: rgba(34,197,94,0.2); color: #22c55e; }
-.status-dipinjam { background: rgba(239,68,68,0.2); color: #ef4444; }
-
 .gallery-controls {
   display: flex;
   gap: 12px;
@@ -405,6 +374,7 @@ textarea {
   flex-wrap: wrap;
   margin-bottom: 20px;
 }
+
 .gallery-controls input {
   flex: 1;
   min-width: 180px;
@@ -427,11 +397,24 @@ textarea {
   cursor: pointer;
   font-size: 14px;
 }
-.book-author, .book-category {
+
+/* .status-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.status-tersedia { background: rgba(34,197,94,0.2); color: #22c55e; }
+.status-dipinjam { background: rgba(239,68,68,0.2); color: #ef4444; } */
+
+/* .book-author, .book-category {
   font-size: 13px;
   color: #aaa;
   margin: 0;
-}
+} */
+
 
 /* ================= DELETE ALL ================= */
 #btnHapusSemua {
@@ -466,6 +449,17 @@ textarea {
   opacity: 0.6;
 }
 
+
+
+
+
+
+
+
+
+
+
+
 /* ================= RESPONSIVE ================= */
 
 /* ===== TABLET (≤1024px) ===== */
@@ -499,7 +493,7 @@ textarea {
   }
 
   /* OVERLAY (biar keren + klik luar nutup) */
-  .overlay {
+  .nav-overlay {
     position: fixed;
     inset: 0;
     background: rgba(0,0,0,0.5);
@@ -510,7 +504,7 @@ textarea {
     z-index: 900;
   }
 
-  .overlay.active {
+  .nav-overlay.active {
     opacity: 1;
     pointer-events: all;
   }
@@ -528,36 +522,39 @@ textarea {
   }
 
   /* HAMBURGER */
-  .menu-toggle {
-    display: block;
-    font-size: 22px;
-    cursor: pointer;
+  .hamburger {
+    display: flex;
   }
+
+  .nav-toggle:checked ~ .sidebar {
+    transform: translateX(0);
+  }
+
 
   /* FORM */
-  .form-card {
-    grid-template-columns: 1fr;
-    padding: 20px;
-  }
+    /* .form-card {
+      grid-template-columns: 1fr;
+      padding: 20px;
+    } */
 
   /* BUTTON STACK */
-  .form-actions {
+  /* .form-actions {
     flex-direction: column;
   }
 
   .btn {
     width: 100%;
-  }
+  } */
 
   /* GRID GALERI */
-  .book-grid {
+  /* .book-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
   }
 
   .book-card img {
     height: 200px;
-  }
+  } */
 }
 
 

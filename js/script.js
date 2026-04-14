@@ -12,12 +12,6 @@ if (bgslide) {
   }, 5000);
 }
 
-/* ================= HUMBERGER ================= */
-function toggleSidebar() {
-  document.querySelector(".sidebar").classList.toggle("active");
-  document.querySelector(".overlay").classList.toggle("active");
-}
-
 /* ================= BOOK SLIDER ================= */
 const track = document.getElementById("bookTrack");
 

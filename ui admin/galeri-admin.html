@@ -8,7 +8,7 @@
   </head>
   <body>
     <div class="container">
-
+      <input type="checkbox" id="navToggle" class="nav-toggle" />
       <!-- ================= SIDEBAR ================= -->
       <aside class="sidebar">
 
@@ -47,19 +47,22 @@
 
       </aside>
 
-      <div class="overlay" onclick="toggleSidebar()"></div>
 
       <!-- ================= MAIN CONTENT ================= -->
       <div class="main-content">
 
         <header class="topbar">
-          <span class="menu-toggle" onclick="toggleSidebar()">☰</span>
           <h1>Galeri Book</h1>
+          <!-- HUBERGER -->
+          <label for="navToggle" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>          
         </header>
 
         <main>
-          <section class="user-gallery">
-
+          <section>
             <div class="gallery-header">
               <h2>Koleksi Buku</h2>
               <p>Total: <strong id="dataCount">0</strong> buku</p>
@@ -67,7 +70,13 @@
 
             <!-- CONTROLS: SEARCH + FILTER + HAPUS SEMUA -->
             <div class="gallery-controls">
-              <input type="text" id="searchInput" placeholder="🔍 Cari judul atau pengarang..." />
+
+              <input 
+                type="text" 
+                id="searchInput" 
+                placeholder="🔍 Cari judul atau pengarang..." 
+              />
+
               <select id="filterKategori">
                 <option value="">Semua Kategori</option>
                 <option value="Fiction">Fiction</option>
@@ -75,17 +84,132 @@
                 <option value="Reference">Reference</option>
                 <option value="Text Book">Text Book</option>
               </select>
+
               <button id="btnHapusSemua">🗑️ Hapus Semua</button>
             </div>
 
             <!-- GRID BOOK -->
-            <div class="book-grid" id="bookGrid"></div>
+            <div class="book-grid" id="bookGrid">
+              <div class="book-card">
+                <img src="../src/book-Bumu Cinta Cetakan 1.webp">
+                <div class="book-info">
+                  <h3>Bumi Cinta Cetakan 1</h3>
+                  <p>Kategori: Fiction</p>
+                  <div class="book-actions">
+                    <button class="btn-detail">Detail</button>
+                    <button class="btn-edit">Edit</button>
+                    <button class="btn-delete">Hapus</button>
+                  </div>
+                </div>
+              </div>
+              <div class="book-card">
+                <img src="../src/book-Bumu Cinta Cetakan 1.webp">
+                <div class="book-info">
+                  <h3>Bumi Cinta Cetakan 1</h3>
+                  <p>Kategori: Fiction</p>
+                  <div class="book-actions">
+                    <button class="btn-detail">Detail</button>
+                    <button class="btn-edit">Edit</button>
+                    <button class="btn-delete">Hapus</button>
+                  </div>
+                </div>
+              </div>
+              <div class="book-card">
+                <img src="../src/book-Bumu Cinta Cetakan 1.webp">
+                <div class="book-info">
+                  <h3>Bumi Cinta Cetakan 1</h3>
+                  <p>Kategori: Fiction</p>
+                  <div class="book-actions">
+                    <button class="btn-detail">Detail</button>
+                    <button class="btn-edit">Edit</button>
+                    <button class="btn-delete">Hapus</button>
+                  </div>
+                </div>
+              </div>
+              <div class="book-card">
+                <img src="../src/book-Bumu Cinta Cetakan 1.webp">
+                <div class="book-info">
+                  <h3>Bumi Cinta Cetakan 1</h3>
+                  <p>Kategori: Fiction</p>
+                  <div class="book-actions">
+                    <button class="btn-detail">Detail</button>
+                    <button class="btn-edit">Edit</button>
+                    <button class="btn-delete">Hapus</button>
+                  </div>
+                </div>
+              </div>
+              <div class="book-card">
+                <img src="../src/book-Bumu Cinta Cetakan 1.webp">
+                <div class="book-info">
+                  <h3>Bumi Cinta Cetakan 1</h3>
+                  <p>Kategori: Fiction</p>
+                  <div class="book-actions">
+                    <button class="btn-detail">Detail</button>
+                    <button class="btn-edit">Edit</button>
+                    <button class="btn-delete">Hapus</button>
+                  </div>
+                </div>
+              </div>
+              <div class="book-card">
+                <img src="../src/book-Bumu Cinta Cetakan 1.webp">
+                <div class="book-info">
+                  <h3>Bumi Cinta Cetakan 1</h3>
+                  <p>Kategori: Fiction</p>
+                  <div class="book-actions">
+                    <button class="btn-detail">Detail</button>
+                    <button class="btn-edit">Edit</button>
+                    <button class="btn-delete">Hapus</button>
+                  </div>
+                </div>
+              </div>
+              <div class="book-card">
+                <img src="../src/book-Bumu Cinta Cetakan 1.webp">
+                <div class="book-info">
+                  <h3>Bumi Cinta Cetakan 1</h3>
+                  <p>Kategori: Fiction</p>
+                  <div class="book-actions">
+                    <button class="btn-detail">Detail</button>
+                    <button class="btn-edit">Edit</button>
+                    <button class="btn-delete">Hapus</button>
+                  </div>
+                </div>
+              </div>
+              <div class="book-card">
+                <img src="../src/book-Bumu Cinta Cetakan 1.webp">
+                <div class="book-info">
+                  <h3>Bumi Cinta Cetakan 1</h3>
+                  <p>Kategori: Fiction</p>
+                  <div class="book-actions">
+                    <button class="btn-detail">Detail</button>
+                    <button class="btn-edit">Edit</button>
+                    <button class="btn-delete">Hapus</button>
+                  </div>
+                </div>
+              </div>
+              <div class="book-card">
+                <img src="../src/book-Bumu Cinta Cetakan 1.webp">
+                <div class="book-info">
+                  <h3>Bumi Cinta Cetakan 1</h3>
+                  <p>Kategori: Fiction</p>
+                  <div class="book-actions">
+                    <button class="btn-detail">Detail</button>
+                    <button class="btn-edit">Edit</button>
+                    <button class="btn-delete">Hapus</button>
+                  </div>
+                </div>
+              </div>
 
+
+
+
+
+
+            </div>
           </section>
         </main>
 
       </div>
     </div>
-    <script src="../js/script.js"></script>
+    <!-- <script src="../js/script.js"></script> -->
   </body>
 </html>
