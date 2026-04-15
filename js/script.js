@@ -90,131 +90,154 @@ if (!localStorage.getItem("books")) {
       category: "Fiction",
       img: "../src/book-Chicken Soup for The Soul.webp",
     },
+
+
+
+
+
+
+
+
+
+
+
+
     {
-      title: "Bumi Cinta",
-      category: "Fiction",
+      title: "Entrepreneurship : Theory, Process, Practice",
+      category: "KPS",
       img: "../src/book-Bumu Cinta Cetakan 1.webp",
     },
     {
-      title: "Eleanor & Park",
-      category: "Fiction",
+      title: "Advanced Accounting gk=lobal edition",
+      category: "KPS",
       img: "../src/book-Eleanor & Park.webp",
     },
     {
-      title: "Fangirl",
-      category: "Fiction",
+      title: "Mathematics for Economics and Business",
+      category: "KPS",
       img: "../src/book-Fangirl.webp",
     },
     {
-      title: "Remember When",
-      category: "Fiction",
+      title: "Pearson New International Edition : Starting out with programming logic and design",
+      category: "KPS",
       img: "../src/book-Remember When.webp",
     },
     {
-      title: "Chicken Soup for The Soul",
-      category: "Fiction",
+      title: "Concepts of Programming Languages",
+      category: "KPS",
       img: "../src/book-Chicken Soup for The Soul.webp",
     },
     {
-      title: "Bumi Cinta",
-      category: "Fiction",
+      title: "Executive's guide to IT governance: Improving systems processess with service management,COBIT,and ITIL",
+      category: "KPS",
       img: "../src/book-Bumu Cinta Cetakan 1.webp",
     },
     {
-      title: "Eleanor & Park",
-      category: "Fiction",
+      title: "Organizational behavior: a Practical,problem-solving approach",
+      category: "KPS",
       img: "../src/book-Eleanor & Park.webp",
     },
     {
-      title: "Fangirl",
-      category: "Fiction",
+      title: "Aplikasi Analisis Multivariete dengan program IBM SPSS 23",
+      category: "KPS",
       img: "../src/book-Fangirl.webp",
     },
     {
-      title: "Remember When",
-      category: "Fiction",
+      title: "Computer Organization and Architecture : Design for Performance",
+      category: "KPS",
       img: "../src/book-Remember When.webp",
     },
     {
-      title: "Chicken Soup for The Soul",
-      category: "Fiction",
+      title: "Compensation",
+      category: "KPS",
       img: "../src/book-Chicken Soup for The Soul.webp",
     },  
     {
-      title: "Bumi Cinta",
-      category: "Fiction",
+      title: "Computer Desktop Encyclopedia",
+      category: "Reference",
       img: "../src/book-Bumu Cinta Cetakan 1.webp",
     },
     {
-      title: "Eleanor & Park",
-      category: "Fiction",
+      title: "Kamus Lengkap Ekonomi",
+      category: "Reference",
       img: "../src/book-Eleanor & Park.webp",
     },
     {
-      title: "Fangirl",
-      category: "Fiction",
+      title: "Standar Akuntansi Keuangan Per 1 Oktober 2004",
+      category: "Referenxe",
       img: "../src/book-Fangirl.webp",
     },
     {
-      title: "Remember When",
-      category: "Fiction",
+      title: "Kamus lengkap : Indonesia-Inggris,Inggris-Indonesia",
+      category: "Reference",
       img: "../src/book-Remember When.webp",
     },
     {
-      title: "Chicken Soup for The Soul",
-      category: "Fiction",
+      title: "KUP Ketentuan umum dan Tata Cara Perpajakan",
+      category: "Reference",
       img: "../src/book-Chicken Soup for The Soul.webp",
     },
     {
-      title: "Bumi Cinta",
-      category: "Fiction",
+      title: "Kamus Pajak: Daftar singkatan , istilah perpajakan, akuntansi, bea dan cukai, serta peradilan pajak disertai dengan penjelasan",
+      category: "Reference",
       img: "../src/book-Bumu Cinta Cetakan 1.webp",
     },
     {
-      title: "Eleanor & Park",
-      category: "Fiction",
+      title: "Standar Profesional Akuntan Publik : Standar Audit (SA) 530 Sampling Audit",
+      category: "Reference",
       img: "../src/book-Eleanor & Park.webp",
     },
     {
-      title: "Fangirl",
-      category: "Fiction",
+      title: "Standar Profesional Akuntan Publik:31 maret 2011",
+      category: "Reference",
       img: "../src/book-Fangirl.webp",
     },
     {
-      title: "Remember When",
-      category: "Fiction",
+      title: "Standar Profesional Akuntan Publik: Seri Penilaian Risiko dan Respons Terhadap Risiko yang dinilai",
+      category: "Reference",
       img: "../src/book-Remember When.webp",
     },
     {
-      title: "Chicken Soup for The Soul",
-      category: "Fiction",
+      title: "Kamus Praktis sehari-hari bahasa indonesia-mandarin",
+      category: "Reference",
       img: "../src/book-Chicken Soup for The Soul.webp",
     },
     {
-      title: "Bumi Cinta",
-      category: "Fiction",
+      title: "75++ Proyek Desain : Trik penting yang wajib diketahui untuk menguasai photoshop",
+      category: "Text Book",
+      img: "../src/book-Remember When.webp",
+    },
+    {
+      title: "Tip dan Trik Meningkatkan Efisiensi, Produktivitas dan Profitabilitas Ketentuan umum dan Tata Cara Perpajakan",
+      category: "Text Book",
+      img: "../src/book-Chicken Soup for The Soul.webp",
+    },
+    {
+      title: "Kamus Pajak: Daftar singkatan , istilah perpajakan, akuntansi, bea dan cukai, serta peradilan pajak disertai dengan penjelasan",
+      category: "Reference",
       img: "../src/book-Bumu Cinta Cetakan 1.webp",
     },
     {
-      title: "Eleanor & Park",
-      category: "Fiction",
+      title: "Standar Profesional Akuntan Publik : Standar Audit (SA) 530 Sampling Audit",
+      category: "Reference",
       img: "../src/book-Eleanor & Park.webp",
     },
     {
-      title: "Fangirl",
-      category: "Fiction",
+      title: "Standar Profesional Akuntan Publik:31 maret 2011",
+      category: "Reference",
       img: "../src/book-Fangirl.webp",
     },
     {
-      title: "Remember When",
-      category: "Fiction",
+      title: "Standar Profesional Akuntan Publik: Seri Penilaian Risiko dan Respons Terhadap Risiko yang dinilai",
+      category: "Reference",
       img: "../src/book-Remember When.webp",
     },
     {
-      title: "Chicken Soup for The Soul",
-      category: "Fiction",
+      title: "Kamus Praktis sehari-hari bahasa indonesia-mandarin",
+      category: "Reference",
       img: "../src/book-Chicken Soup for The Soul.webp",
     },
+    
   ];
   saveBooks(defaultBooks);
 }
