@@ -8,7 +8,7 @@
 
 /* ================= BODY ================= */
 body {
-  background: radial-gradient(circle at top, #1e293b 0%, #0f172a 100%);
+  background: #fff;
   font-family: 'Courier New', Courier, monospace;
   height: 100vh;
 }
@@ -33,7 +33,7 @@ body {
 .navbar {
   position: relative;
   width: 100%;
-  padding: 30px;
+  padding: 40px;
   z-index: 10;
 }
 
@@ -165,8 +165,9 @@ nav {
 /* HEADER TEXT */
 .header-content {
   text-align: left;
-  color: rgb(248, 248, 248);
+  color: rgb(255, 255, 255);
 }
+
 
 /* OVERLAY NAV */
 .nav-overlay {
@@ -502,10 +503,22 @@ select.komponen-advanced option {
 
 
 /* ================= GALERI USER ================= */
+.bg-header-galeri{
+  background: linear-gradient(
+    135deg,
+    #1e3a8a 0%,
+    #2563eb 30%,
+    #06b6d4 70%,
+    #14b8a6 100%
+  );
+  width: auto;
+  height: 30vh;
+  display: flex;
+}
 .galeri-container {
   display: flex;
   flex-direction: column;
-  padding: 20px 30px;
+  padding: 30px;
   align-items: center;
   width: 100%;
 }
@@ -514,14 +527,12 @@ select.komponen-advanced option {
 .user-controls {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
 
   width: 100%;
-  max-width: 800px;
-  margin-top: -50px;
-  margin-bottom: 40px;
-  margin-left: 950px;
+  margin-left: auto;
 }
+
 
 /* GRID */
 .book-grid {
@@ -563,7 +574,7 @@ select.komponen-advanced option {
   display: flex;
   flex-direction: column;
   gap: 8px;
-
+  color: white;
 }
 
 .book-info h3 {
@@ -605,78 +616,6 @@ select.komponen-advanced option {
 .btn-detail:hover {
   background: #2563eb;
 }
-
-/* EDIT */
-.btn-edit {
-  background: #f59e0b;
-  color: #fff;
-}
-
-.btn-edit:hover {
-  background: #d97706;
-}
-
-/* DELETE */
-.btn-delete {
-  background: #ef4444;
-  color: #fff;
-}
-
-.btn-delete:hover {
-  background: #dc2626;
-}
-
-.gallery-controls {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
-}
-
-.gallery-controls input {
-  flex: 1;
-  min-width: 180px;
-  padding: 10px 15px;
-  border-radius: 10px;
-  border: 1px solid #444;
-  background: #1e1e1e;
-  color: #fff;
-  outline: none;
-  font-size: 14px;
-}
-.gallery-controls input:focus { border-color: #00bcd4; }
-.gallery-controls select {
-  padding: 10px 15px;
-  border-radius: 10px;
-  border: 1px solid #444;
-  background: #1e1e1e;
-  color: #fff;
-  outline: none;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-/* .status-badge {
-  display: inline-block;
-  padding: 4px 10px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-.status-tersedia { background: rgba(34,197,94,0.2); color: #22c55e; }
-.status-dipinjam { background: rgba(239,68,68,0.2); color: #ef4444; } */
-
-/* .book-author, .book-category {
-  font-size: 13px;
-  color: #aaa;
-  margin: 0;
-} */
-
-
-
-
 
 /* ================= FOOTER ================= */
 footer {

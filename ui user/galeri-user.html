@@ -8,119 +8,108 @@
     </head>
 
     <body>
-        <div id="bg-slide" class="bg-slide">
-            <div class="bg-trans">
-                <!-- ================= HEADER ================= -->
-                <header class="navbar">
-                    <div class="navbar-inner">
-                        <!-- LOGO -->
-                        <a href="/ui user/index.html" class="logo">
-                        <img src="../src/logo mikro putih.webp" alt="Logo Mikro" />
-                        </a>
+        <div class="bg-header-galeri">
+            <!-- ================= HEADER ================= -->
+            <header class="navbar">
+                <div class="navbar-inner">
+                    <!-- LOGO -->
+                    <a href="/ui user/index.html" class="logo">
+                    <img src="../src/logo mikro putih.webp" alt="Logo Mikro" />
+                    </a>
 
-                        <!-- HAMBURGER -->
-                        <input type="checkbox" id="navToggle" class="nav-toggle" />
-                        <label for="navToggle" class="hamburger">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        </label>
+                    <!-- HAMBURGER -->
+                    <input type="checkbox" id="navToggle" class="nav-toggle" />
+                    <label for="navToggle" class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    </label>
 
-                        <!-- NAVIGATION -->
-                        <nav>
-                        <ul class="nav-menu">
-                            <li class="judul-nav">MENU</li>
-                            <br />
-                            <li><a href="/ui user/index.html" class="active">Home</a></li>
-                            <li><a href="/ui user/galeri-user.html">Galeri</a></li>
-                            <li><a href="../ui admin/home-admin.html">Admin</a></li>
-                        </ul>
-                        </nav>
+                    <!-- NAVIGATION -->
+                    <nav>
+                    <ul class="nav-menu">
+                        <li class="judul-nav">MENU</li>
+                        <br />
+                        <li><a href="/ui user/index.html" class="active">Home</a></li>
+                        <li><a href="/ui user/galeri-user.html">Galeri</a></li>
+                        <li><a href="../ui admin/home-admin.html">Admin</a></li>
+                    </ul>
+                    </nav>
 
-                        <div class="nav-overlay"></div>
+                    <div class="nav-overlay"></div>
+                </div>
+                <!-- HEADER CONTENT -->
+                <div class="header-content">
+                    <h1>KOLEKSI BUKU</h1>
+                </div>
+
+                <div class="user-controls">
+                    <div class="search">
+                        <input 
+                            type="text" 
+                            placeholder="e.g. Library and Information" 
+                        />
+                        <button>Cari</button>
                     </div>
-                    <!-- HEADER CONTENT -->
-                    <div class="header-content">
-                        <h1>KOLEKSI BUKU</h1>
+                    <div class="advanced-btn">
+                        <a href="#" id="openAdvanced">Advanced Search</a>
                     </div>
-                </header>
+                </div>
 
+                <!-- POP-UP ADVANCED SEARCH -->
+                <div id="advanced-pop-up" class="pop-up">
+                    <div class="pop-up-container">
+                        <span class="close">&times;</span>
+
+                        <h2>ADVANCED SEARCH</h2>
+
+                        <form>
+                        <label>Judul:</label>
+                        <input
+                            type="text"
+                            class="komponen-advanced"
+                            placeholder="Masukkan Judul"
+                        />
+
+                        <label>Pengarang:</label>
+                        <input
+                            type="text"
+                            class="komponen-advanced"
+                            placeholder="Masukkan Nama Pengarang"
+                        />
+
+                        <label>Kategori:</label>
+                        <select class="komponen-advanced">
+                            <option>All Collection</option>
+                            <option>Fiction</option>
+                            <option>KPS</option>
+                            <option>Reference</option>
+                            <option>Text Book</option>
+                        </select>
+
+                        <label>Nama Penerbit:</label>
+                        <input
+                            type="text"
+                            class="komponen-advanced"
+                            placeholder="Masukkan Nama penerbit"
+                        />
+
+                        <button type="submit">Pencarian</button>
+                        </form>
+                    </div>
+                </div>
+            </header>
+        </div>
                 <main class="galeri-container">
-                    <section class="user-controls">
-                        <div class="search">
-                            <input 
-                                type="text" 
-                                placeholder="e.g. Library and Information" 
-                            />
-                            <button>Cari</button>
-                        </div>
-                        <div class="advanced-btn">
-                            <a href="#" id="openAdvanced">Advanced Search</a>
-                        </div>
-                    </section>
-
-                    <!-- POP-UP ADVANCED SEARCH -->
-                    <div id="advanced-pop-up" class="pop-up">
-                        <div class="pop-up-container">
-                            <span class="close">&times;</span>
-
-                            <h2>ADVANCED SEARCH</h2>
-
-                            <form>
-                            <label>Judul:</label>
-                            <input
-                                type="text"
-                                class="komponen-advanced"
-                                placeholder="Masukkan Judul"
-                            />
-
-                            <label>Pengarang:</label>
-                            <input
-                                type="text"
-                                class="komponen-advanced"
-                                placeholder="Masukkan Nama Pengarang"
-                            />
-
-                            <label>Kategori:</label>
-                            <select class="komponen-advanced">
-                                <option>All Collection</option>
-                                <option>Fiction</option>
-                                <option>KPS</option>
-                                <option>Reference</option>
-                                <option>Text Book</option>
-                            </select>
-
-                            <label>Nama Penerbit:</label>
-                            <input
-                                type="text"
-                                class="komponen-advanced"
-                                placeholder="Masukkan Nama penerbit"
-                            />
-
-                            <button type="submit">Pencarian</button>
-                            </form>
-                        </div>
-                    </div>
-
                     <div class="book-grid" id="bookGrid">
                         <div class="book-card">
                             <img src="../src/book-Bumu Cinta Cetakan 1.webp">
                             <div class="book-info">
                                 <h3>Bumi Cinta Cetakan 1</h3>
                                 <p>Kategori: Fiction</p>
-                            <div class="book-actions">
-                                <button class="btn-detail">Detail</button>
-                            </div>
-                            </div>
-                        </div>
-                        <div class="book-card">
-                            <img src="../src/book-Bumu Cinta Cetakan 1.webp">
-                            <div class="book-info">
-                                <h3>Bumi Cinta Cetakan 1</h3>
-                                <p>Kategori: Fiction</p>
-                            <div class="book-actions">
-                                <button class="btn-detail">Detail</button>
-                            </div>
+                                <div class="book-actions">
+                                    <button class="btn-detail">Detail</button>
+                                </div>
                             </div>
                         </div>
                         <div class="book-card">
@@ -128,19 +117,9 @@
                             <div class="book-info">
                                 <h3>Bumi Cinta Cetakan 1</h3>
                                 <p>Kategori: Fiction</p>
-                            <div class="book-actions">
-                                <button class="btn-detail">Detail</button>
-                            </div>
-                            </div>
-                        </div>
-                        <div class="book-card">
-                            <img src="../src/book-Bumu Cinta Cetakan 1.webp">
-                            <div class="book-info">
-                                <h3>Bumi Cinta Cetakan 1</h3>
-                                <p>Kategori: Fiction</p>
-                            <div class="book-actions">
-                                <button class="btn-detail">Detail</button>
-                            </div>
+                                <div class="book-actions">
+                                    <button class="btn-detail">Detail</button>
+                                </div>
                             </div>
                         </div>
                         <div class="book-card">
@@ -148,19 +127,9 @@
                             <div class="book-info">
                                 <h3>Bumi Cinta Cetakan 1</h3>
                                 <p>Kategori: Fiction</p>
-                            <div class="book-actions">
-                                <button class="btn-detail">Detail</button>
-                            </div>
-                            </div>
-                        </div>
-                        <div class="book-card">
-                            <img src="../src/book-Bumu Cinta Cetakan 1.webp">
-                            <div class="book-info">
-                                <h3>Bumi Cinta Cetakan 1</h3>
-                                <p>Kategori: Fiction</p>
-                            <div class="book-actions">
-                                <button class="btn-detail">Detail</button>
-                            </div>
+                                <div class="book-actions">
+                                    <button class="btn-detail">Detail</button>
+                                </div>
                             </div>
                         </div>
                         <div class="book-card">
@@ -168,9 +137,19 @@
                             <div class="book-info">
                                 <h3>Bumi Cinta Cetakan 1</h3>
                                 <p>Kategori: Fiction</p>
-                            <div class="book-actions">
-                                <button class="btn-detail">Detail</button>
+                                <div class="book-actions">
+                                    <button class="btn-detail">Detail</button>
+                                </div>
                             </div>
+                        </div>      
+                        <div class="book-card">
+                            <img src="../src/book-Bumu Cinta Cetakan 1.webp">
+                            <div class="book-info">
+                                <h3>Bumi Cinta Cetakan 1</h3>
+                                <p>Kategori: Fiction</p>
+                                <div class="book-actions">
+                                    <button class="btn-detail">Detail</button>
+                                </div>
                             </div>
                         </div>
                         <div class="book-card">
@@ -178,19 +157,9 @@
                             <div class="book-info">
                                 <h3>Bumi Cinta Cetakan 1</h3>
                                 <p>Kategori: Fiction</p>
-                            <div class="book-actions">
-                                <button class="btn-detail">Detail</button>
-                            </div>
-                            </div>
-                        </div>
-                        <div class="book-card">
-                            <img src="../src/book-Bumu Cinta Cetakan 1.webp">
-                            <div class="book-info">
-                                <h3>Bumi Cinta Cetakan 1</h3>
-                                <p>Kategori: Fiction</p>
-                            <div class="book-actions">
-                                <button class="btn-detail">Detail</button>
-                            </div>
+                                <div class="book-actions">
+                                    <button class="btn-detail">Detail</button>
+                                </div>
                             </div>
                         </div>
                         <div class="book-card">
@@ -198,19 +167,68 @@
                             <div class="book-info">
                                 <h3>Bumi Cinta Cetakan 1</h3>
                                 <p>Kategori: Fiction</p>
-                            <div class="book-actions">
-                                <button class="btn-detail">Detail</button>
-                            </div>
+                                <div class="book-actions">
+                                    <button class="btn-detail">Detail</button>
+                                </div>
                             </div>
                         </div>
+                        <div class="book-card">
+                            <img src="../src/book-Bumu Cinta Cetakan 1.webp">
+                            <div class="book-info">
+                                <h3>Bumi Cinta Cetakan 1</h3>
+                                <p>Kategori: Fiction</p>
+                                <div class="book-actions">
+                                    <button class="btn-detail">Detail</button>
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="book-card">
+                            <img src="../src/book-Bumu Cinta Cetakan 1.webp">
+                            <div class="book-info">
+                                <h3>Bumi Cinta Cetakan 1</h3>
+                                <p>Kategori: Fiction</p>
+                                <div class="book-actions">
+                                    <button class="btn-detail">Detail</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="book-card">
+                            <img src="../src/book-Bumu Cinta Cetakan 1.webp">
+                            <div class="book-info">
+                                <h3>Bumi Cinta Cetakan 1</h3>
+                                <p>Kategori: Fiction</p>
+                                <div class="book-actions">
+                                    <button class="btn-detail">Detail</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="book-card">
+                            <img src="../src/book-Bumu Cinta Cetakan 1.webp">
+                            <div class="book-info">
+                                <h3>Bumi Cinta Cetakan 1</h3>
+                                <p>Kategori: Fiction</p>
+                                <div class="book-actions">
+                                    <button class="btn-detail">Detail</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="book-card">
+                            <img src="../src/book-Bumu Cinta Cetakan 1.webp">
+                            <div class="book-info">
+                                <h3>Bumi Cinta Cetakan 1</h3>
+                                <p>Kategori: Fiction</p>
+                                <div class="book-actions">
+                                    <button class="btn-detail">Detail</button>
+                                </div>
+                            </div>
+                        </div>                                                                                                                
                     </div>
                 </main>
 
                 <footer>
                     <p>&copy; 2026 Katalog - Perpustakaan Mikroskil</p>
                 </footer>
-            </div>
-        </div>
+
 
     <script src="../js/script.js"></script>
     </body>
