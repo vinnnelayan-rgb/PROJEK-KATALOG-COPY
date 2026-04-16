@@ -1,96 +1,94 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Katalog Perpustakaan</title>
-    <link rel="stylesheet" href="../css/style-admin.css" />
-  </head>
-  <body>
-    <div class="container">
-      <input type="checkbox" id="navToggle" class="nav-toggle" />
-      <!-- ================= SIDEBAR ================= -->
-      <aside class="sidebar">
 
-        <!-- LOGO -->
-        <div class="logo">
-          <a href="/ui admin/home-admin.html">
-            <img src="../src/logo mikro putih.webp" alt="Logo Mikro" />
-          </a>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Katalog Perpustakaan</title>
+  <link rel="stylesheet" href="../css/style-admin.css" />
+</head>
 
-        <!-- NAVIGATION -->
-        <nav class="nav-menu">
-          <ul>
-            <li>
-              <a href="/ui admin/home-admin.html">
-                <span>🏠</span> Dashboard
-              </a>
-            </li>
-            <li>
-              <a href="/ui admin/add-book.html">
-                <span>📚</span> Add Book
-              </a>
-            </li>
-            <li>
-              <a href="/ui admin/galeri-admin.html" class="active">
-                <span>🖼️</span> Galeri
-              </a>
-            </li>
-            <li>
-              <a href="../index.html">
-                <span>🚪</span> Logout
-              </a>
-            </li>
-          </ul>
-        </nav>
+<body>
+  <div class="container">
+    <input type="checkbox" id="navToggle" class="nav-toggle" />
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="sidebar">
 
-      </aside>
+      <!-- LOGO -->
+      <div class="logo">
+        <a href="/ui admin/home-admin.html">
+          <img src="../src/logo mikro putih.webp" alt="Logo Mikro" />
+        </a>
+      </div>
+
+      <!-- NAVIGATION -->
+      <nav class="nav-menu">
+        <ul>
+          <li>
+            <a href="/ui admin/home-admin.html">
+              <span>🏠</span> Dashboard
+            </a>
+          </li>
+          <li>
+            <a href="/ui admin/add-book.html">
+              <span>📚</span> Add Book
+            </a>
+          </li>
+          <li>
+            <a href="/ui admin/galeri-admin.html" class="active">
+              <span>🖼️</span> Galeri
+            </a>
+          </li>
+          <li>
+            <a href="../index.html">
+              <span>🚪</span> Logout
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+    </aside>
 
 
-      <!-- ================= MAIN CONTENT ================= -->
-      <div class="main-content">
+    <!-- ================= MAIN CONTENT ================= -->
+    <div class="main-content">
 
-        <header class="topbar">
-          <h1>Galeri Book</h1>
-          <!-- HUBERGER -->
-          <label for="navToggle" class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-          </label>          
-        </header>
+      <header class="topbar">
+        <h1>Galeri Book</h1>
+        <!-- HUBERGER -->
+        <label for="navToggle" class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+      </header>
 
-        <main>
-          <section>
-            <div class="gallery-header">
-              <h2>Koleksi Buku</h2>
-              <p>Total: <strong id="dataCount">0</strong> buku</p>
-            </div>
+      <main>
+        <section>
+          <div class="gallery-header">
+            <h2>Koleksi Buku</h2>
+            <p>Total: <strong id="dataCount">0</strong> buku</p>
+          </div>
 
-            <!-- CONTROLS: SEARCH + FILTER + HAPUS SEMUA -->
-            <div class="gallery-controls">
+          <!-- CONTROLS: SEARCH + FILTER + HAPUS SEMUA -->
+          <div class="gallery-controls">
 
-              <input 
-                type="text" 
-                id="searchInput" 
-                placeholder="🔍 Cari judul atau pengarang..." 
-              />
+            <input type="text" id="searchInput" placeholder="🔍 Cari judul atau pengarang..." />
 
-              <select id="filterKategori">
-                <option value="">Semua Kategori</option>
-                <option value="Fiction">Fiction</option>
-                <option value="KPS">KPS</option>
-                <option value="Reference">Reference</option>
-                <option value="Text Book">Text Book</option>
-              </select>
+            <select id="filterKategori">
+              <option value="">Semua Kategori</option>
+              <option value="Fiction">Fiction</option>
+              <option value="KPS">KPS</option>
+              <option value="Reference">Reference</option>
+              <option value="Text Book">Text Book</option>
+            </select>
 
-              <button id="btnHapusSemua">🗑️ Hapus Semua</button>
-            </div>
+            <button id="btnHapusSemua">🗑️ Hapus Semua</button>
+          </div>
 
-            <!-- GRID BOOK -->
-            <div class="book-grid" id="bookGridAdmin">
-              <!-- <div class="book-card">
+          <!-- GRID BOOK -->
+          <div class="book-grid" id="bookGridAdmin">
+            <!-- <div class="book-card">
                 <img src="../src/book-Bumu Cinta Cetakan 1.webp">
                 <div class="book-info">
                   <h3>Bumi Cinta Cetakan 1</h3>
@@ -204,12 +202,13 @@
 
 
 
-            </div>
-          </section>
-        </main>
+          </div>
+        </section>
+      </main>
 
-      </div>
     </div>
-    <script src="../js/script.js"></script>
-  </body>
+  </div>
+  <script src="../js/script.js"></script>
+</body>
+
 </html>

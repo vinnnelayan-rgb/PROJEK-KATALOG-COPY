@@ -949,7 +949,7 @@ function renderBooksUser() {
 
 
 if (document.getElementById("bookGridAdmin")) {
-  renderBooks();
+  renderBooksAdmin();
 }
 
 if (document.getElementById("bookGridUser")) {

@@ -16,7 +16,7 @@ body {
     background: linear-gradient(135deg, #0f172a, #020617);
 }
 
-a{
+a {
     text-decoration: none;
 }
 
@@ -40,7 +40,7 @@ a{
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
 }
 
-.login-box img{
+.login-box img {
     margin-bottom: 30px;
 }
 
@@ -110,4 +110,85 @@ a{
 .button:hover {
     transform: scale(1.05);
     box-shadow: 0 0 15px #06b6d4;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+/* TABLET (≤1024px) */
+@media (max-width: 1024px) {
+    .login-container {
+        max-width: 420px;
+    }
+
+    .login-box {
+        padding: 30px;
+    }
+}
+
+/* MOBILE (≤768px) */
+@media (max-width: 768px) {
+
+    body {
+        align-items: flex-start;
+        padding: 30px 15px;
+    }
+
+    .login-container {
+        max-width: 90%;
+        height: auto;
+        margin-top: 50px;
+    }
+
+    .login-box {
+        padding: 25px;
+        border-radius: 15px;
+    }
+
+    .login-box img {
+        width: 120px;
+        margin-bottom: 20px;
+    }
+
+    .login-box h2 {
+        font-size: 14px;
+    }
+
+    .input-group input {
+        padding: 11px;
+        font-size: 14px;
+    }
+
+    .button {
+        padding: 11px;
+        font-size: 14px;
+    }
+}
+
+/* SMALL MOBILE (≤480px) */
+@media (max-width: 480px) {
+
+    body {
+        padding: 20px 10px;
+    }
+
+    .login-box {
+        padding: 20px;
+    }
+
+    .login-box img {
+        width: 100px;
+    }
+
+    .login-box h2 {
+        font-size: 13px;
+    }
+
+    .input-group label {
+        font-size: 12px;
+    }
+
+    .button {
+        font-size: 13px;
+    }
 }

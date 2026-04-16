@@ -129,7 +129,7 @@ body {
   margin-top: auto;
 }
 
-.menu-toggle{
+.menu-toggle {
   display: none;
 }
 
@@ -198,7 +198,7 @@ main {
   border-color: #00bcd4;
   box-shadow: 0 0 5px #00bcd4;
 
-  width: 100%;      
+  width: 100%;
   max-width: 100%;
 }
 
@@ -234,7 +234,7 @@ textarea {
   color: #fff;
 }
 
-.btn-primary span{
+.btn-primary span {
   font-size: 20px;
   font-weight: 700;
 }
@@ -254,6 +254,11 @@ textarea {
 .btn-outline:hover {
   transform: translateY(-2px);
   background: #333;
+}
+
+/* tombol "Choose File" */
+input[type="file"]::file-selector-button {
+  display: none;
 }
 
 
@@ -314,7 +319,7 @@ textarea {
   overflow: hidden;
 }
 
-.book-info p{
+.book-info p {
   font-size: 14px;
   font-weight: 500;
 }
@@ -388,7 +393,11 @@ textarea {
   outline: none;
   font-size: 14px;
 }
-.gallery-controls input:focus { border-color: #00bcd4; }
+
+.gallery-controls input:focus {
+  border-color: #00bcd4;
+}
+
 .gallery-controls select {
   padding: 10px 15px;
   border-radius: 10px;
@@ -399,24 +408,6 @@ textarea {
   cursor: pointer;
   font-size: 14px;
 }
-
-/* .status-badge {
-  display: inline-block;
-  padding: 4px 10px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-.status-tersedia { background: rgba(34,197,94,0.2); color: #22c55e; }
-.status-dipinjam { background: rgba(239,68,68,0.2); color: #ef4444; } */
-
-/* .book-author, .book-category {
-  font-size: 13px;
-  color: #aaa;
-  margin: 0;
-} */
-
 
 /* ================= DELETE ALL ================= */
 #btnHapusSemua {
@@ -451,23 +442,13 @@ textarea {
   opacity: 0.6;
 }
 
-
-
-
-
-
-
-
-
-
-
-
 /* ================= RESPONSIVE ================= */
 
 /* ===== TABLET (≤1024px) ===== */
 @media (max-width: 1024px) {
   .form-card {
-    grid-template-columns: 1fr; /* form jadi 1 kolom */
+    grid-template-columns: 1fr;
+    /* form jadi 1 kolom */
   }
 
   .form-group.full {
@@ -498,7 +479,7 @@ textarea {
   .nav-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(2px);
     opacity: 0;
     pointer-events: none;
@@ -528,35 +509,10 @@ textarea {
     display: flex;
   }
 
-  .nav-toggle:checked ~ .sidebar {
+  .nav-toggle:checked~.sidebar {
     transform: translateX(0);
   }
 
-
-  /* FORM */
-    /* .form-card {
-      grid-template-columns: 1fr;
-      padding: 20px;
-    } */
-
-  /* BUTTON STACK */
-  /* .form-actions {
-    flex-direction: column;
-  }
-
-  .btn {
-    width: 100%;
-  } */
-
-  /* GRID GALERI */
-  /* .book-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-  }
-
-  .book-card img {
-    height: 200px;
-  } */
 }
 
 

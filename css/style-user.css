@@ -12,7 +12,7 @@ body {
   height: 100vh;
 }
 
-.bg-slide{
+.bg-slide {
   height: 100svh;
   background-image: url(../src/bg3.webp);
   background-size: cover;
@@ -149,19 +149,19 @@ nav {
 }
 
 /* NAV ACTIVE */
-.nav-toggle:checked ~ nav .nav-menu {
+.nav-toggle:checked~nav .nav-menu {
   right: 0;
 }
 
-#navToggle:checked ~ .hamburger span:nth-child(1) {
+#navToggle:checked~.hamburger span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
 
-#navToggle:checked ~ .hamburger span:nth-child(2) {
+#navToggle:checked~.hamburger span:nth-child(2) {
   opacity: 0;
 }
 
-#navToggle:checked ~ .hamburger span:nth-child(3) {
+#navToggle:checked~.hamburger span:nth-child(3) {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
@@ -186,7 +186,7 @@ nav {
   transition: 0.3s;
 }
 
-.nav-toggle:checked ~ .nav-overlay {
+.nav-toggle:checked~.nav-overlay {
   opacity: 1;
   pointer-events: auto;
 }
@@ -196,6 +196,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-bottom: 60px;
 }
 
 /* HERO */
@@ -506,24 +507,25 @@ select.komponen-advanced option {
 
 
 /* ================= GALERI USER ================= */
-.bg-header-galeri{
-  background: linear-gradient(
-    135deg,
-    #1e3a8a 0%,
-    #2563eb 30%,
-    #06b6d4 70%,
-    #14b8a6 100%
-  );
+.bg-header-galeri {
+  background: linear-gradient(135deg,
+      #1e3a8a 0%,
+      #2563eb 30%,
+      #06b6d4 70%,
+      #14b8a6 100%);
   width: auto;
   height: 30vh;
   display: flex;
 }
+
 .galeri-container {
   display: flex;
   flex-direction: column;
   padding: 30px;
   align-items: center;
   width: 100%;
+  max-width: 1200px;
+  margin: auto;
 }
 
 /* CONTROLS */
@@ -536,7 +538,7 @@ select.komponen-advanced option {
   margin-left: auto;
 }
 
-.user-controls .search{
+.user-controls .search {
   background: #14141402;
 }
 
@@ -544,10 +546,10 @@ select.komponen-advanced option {
 /* GRID */
 .book-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 15px;
   width: 100%;
-  padding: 20px;
+  padding: 15px;
   align-items: start;
 }
 
@@ -566,7 +568,7 @@ select.komponen-advanced option {
 
 .book-card:hover {
   transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
 }
 
 /* IMAGE */
@@ -583,7 +585,7 @@ select.komponen-advanced option {
   flex-direction: column;
   gap: 8px;
   color: white;
-  border-top: 1px solid rgba(255,255,255,0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
   background: linear-gradient(135deg, #1f3c88, #00bcd4);
   transition: all 0.4s ease;
 }
@@ -595,7 +597,7 @@ select.komponen-advanced option {
   overflow: hidden;
 }
 
-.book-info p{
+.book-info p {
   font-size: 14px;
   font-weight: 500;
 }
@@ -645,6 +647,7 @@ footer {
     opacity: 0;
     transform: translateY(-15px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -653,23 +656,52 @@ footer {
 
 /* ================= RESPONSIVE ================= */
 
-/* TABLET */
-@media (max-width: 1024px) {
-  .logo img {
-    width: 160px;
+/* ================= DESKTOP BESAR ================= */
+@media (max-width: 1200px) {
+  .galeri-container {
+    max-width: 1000px;
   }
 
   .hero {
     max-width: 500px;
   }
+}
+
+/* ================= TABLET ================= */
+@media (max-width: 1024px) {
+
+  /* ===== INDEX ===== */
+  .logo img {
+    width: 160px;
+  }
+
+  .search-container h1 {
+    font-size: 26px;
+  }
+
+  .search-container p {
+    font-size: 14px;
+  }
 
   .book-slider {
     max-width: 90%;
   }
+
+  /* ===== GALERI ===== */
+  .book-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+  }
+
+  .book-card img {
+    height: 250px;
+  }
 }
 
-/* MOBILE */
+/* ================= TABLET KECIL ================= */
 @media (max-width: 768px) {
+
+  /* ===== NAVBAR ===== */
   .navbar {
     padding: 20px;
   }
@@ -679,16 +711,17 @@ footer {
   }
 
   .header-content h1 {
-    font-size: 20px;
+    font-size: 22px;
   }
 
+  /* ===== INDEX ===== */
   .hero {
     max-width: 90%;
     padding: 15px;
   }
 
   .search-container h1 {
-    font-size: 24px;
+    font-size: 22px;
   }
 
   .search-container p {
@@ -696,11 +729,12 @@ footer {
   }
 
   .search {
-    max-width: 100%;
+    width: 100%;
+    max-width: 400px;
   }
 
   .search input {
-    padding: 15px;
+    padding: 12px;
     font-size: 14px;
   }
 
@@ -709,14 +743,7 @@ footer {
     font-size: 13px;
   }
 
-  /* POPUP */
-  .pop-up-container {
-    width: 90%;
-    margin: 60px auto;
-    padding: 25px;
-  }
-
-  /* BOOK */
+  /* ===== SLIDER ===== */
   .book {
     min-width: 90px;
   }
@@ -726,17 +753,52 @@ footer {
     height: 120px;
   }
 
-  .book:hover {
-    transform: translateY(-10px);
+  /* ===== GALERI HEADER ===== */
+  .bg-header-galeri {
+    height: auto;
+    padding: 20px;
+    flex-direction: column;
+    align-items: center;
   }
 
-  .book-slider {
-    bottom: 40px; /* biar gak ketabrak footer */
+  /* ===== SEARCH GALERI ===== */
+  .user-controls {
+    align-items: center;
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  .user-controls .search {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  /* ===== GRID ===== */
+  .book-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+    padding: 10px;
+  }
+
+  /* ===== CARD ===== */
+  .book-card img {
+    height: 220px;
+  }
+
+  .book-info h3 {
+    font-size: 14px;
+    height: 40px;
+  }
+
+  .book-info p {
+    font-size: 12px;
   }
 }
 
-/* SMALL MOBILE */
+/* ================= MOBILE ================= */
 @media (max-width: 480px) {
+
+  /* ===== NAV ===== */
   .logo img {
     width: 120px;
   }
@@ -745,12 +807,9 @@ footer {
     width: 24px;
   }
 
-  .header-content h1 {
-    font-size: 16px;
-  }
-
+  /* ===== INDEX ===== */
   .search-container h1 {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .search-container p {
@@ -758,7 +817,7 @@ footer {
   }
 
   .search input {
-    padding: 12px;
+    padding: 10px;
     font-size: 13px;
   }
 
@@ -767,6 +826,7 @@ footer {
     font-size: 12px;
   }
 
+  /* ===== SLIDER ===== */
   .book {
     min-width: 75px;
   }
@@ -776,7 +836,30 @@ footer {
     height: 100px;
   }
 
-  footer {
-    font-size: 12px;
+  /* ===== GALERI ===== */
+  .book-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .book-card img {
+    height: 180px;
+  }
+
+  .book-info {
+    padding: 10px;
+  }
+
+  .book-info h3 {
+    font-size: 13px;
+  }
+
+  .book-info p {
+    font-size: 11px;
+  }
+
+  /* ===== HEADER GALERI ===== */
+  .header-content h1 {
+    font-size: 18px;
   }
 }
