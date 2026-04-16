@@ -9,7 +9,6 @@
 /* ================= BODY ================= */
 body {
   background: #fff;
-  font-family: 'Courier New', Courier, monospace;
   height: 100vh;
 }
 
@@ -91,9 +90,13 @@ nav {
   letter-spacing: 1px;
   color: white;
 
-  padding-bottom: 7px;
-  margin-bottom: 5px;
+  padding: 9px 0;
+  margin-bottom: 20px;
   border-bottom: 2px solid rgba(255, 255, 255, 0.772);
+}
+
+.admin-menu {
+  margin-top: auto;
 }
 
 /* NAV LINK */
