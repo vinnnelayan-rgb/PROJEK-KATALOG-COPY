@@ -448,7 +448,6 @@ input[type="file"]::file-selector-button {
 @media (max-width: 1024px) {
   .form-card {
     grid-template-columns: 1fr;
-    /* form jadi 1 kolom */
   }
 
   .form-group.full {
@@ -475,7 +474,7 @@ input[type="file"]::file-selector-button {
     transform: translateX(0);
   }
 
-  /* OVERLAY (biar keren + klik luar nutup) */
+  /* OVERLAY */
   .nav-overlay {
     position: fixed;
     inset: 0;

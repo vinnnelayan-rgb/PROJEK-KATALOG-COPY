@@ -1,6 +1,6 @@
 /* ================= BG-SLIDER ================= */
 const bgslide = document.getElementById("bg-slide");
-const images = ["../../src/bg1.webp", "../../src/bg2.webp", "../../src/bg3.webp", "../../src/bg4.webp"];
+const images = ["../src/bg1.webp", "../src/bg2.webp", "../src/bg3.webp", "../src/bg4.webp"];
 
 if (bgslide) {
   let i = 0;
@@ -16,12 +16,15 @@ if (bgslide) {
 const track = document.getElementById("bookTrack");
 
 if (track) {
+  // clone isi track
+  track.innerHTML += track.innerHTML;
+
   let scrollAmount = 0;
 
   setInterval(() => {
     scrollAmount += 140;
 
-    if (scrollAmount >= track.scrollWidth - track.clientWidth) {
+    if (scrollAmount >= track.scrollWidth / 2) {
       scrollAmount = 0;
     }
 
@@ -930,12 +933,12 @@ document.addEventListener("click", function (e) {
 const bookGridUser = document.getElementById("bookGridUser");
 
 function renderBooksUser() {
-  console.log("USER RENDER JALAN"); // 🔥 CEK
+  console.log("USER RENDER JALAN");
 
   if (!bookGridUser) return;
 
   const books = getBooks();
-  console.log(books); // 🔥 CEK DATA
+  console.log(books);
 
   bookGridUser.innerHTML = "";
 
