@@ -14,7 +14,7 @@ body {
 
 .bg-slide {
   height: 100svh;
-  background-image: url(../src/bg3.webp);
+  background-image: url(src/bg3.webp);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
