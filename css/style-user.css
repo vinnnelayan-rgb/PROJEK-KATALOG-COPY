@@ -826,6 +826,17 @@ footer {
     font-size: 12px;
   }
 
+  .pop-up-container{
+    width: 350px;
+    font-size: small;
+  }
+
+  .pop-up-container input, 
+  .pop-up-container select{
+    font-size: xx-small;
+  }
+
+
   /* ===== SLIDER ===== */
   .book {
     min-width: 75px;
