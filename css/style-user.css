@@ -1,3 +1,130 @@
+/* ================= THEME TRANSITION ================= */
+body,
+.nav-menu,
+.search,
+.search input,
+.search button,
+.book-card,
+.book-info,
+.pop-up-container,
+footer,
+.nav-menu li a,
+.bg-header-galeri,
+.pop-up-container input,
+select.komponen-advanced {
+  transition:
+    background 0.4s ease,
+    background-color 0.4s ease,
+    color 0.4s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.dark-mode {
+  /* BASIC */
+  --white: #ffffff;
+  --black: #000000;
+
+  /* BODY */
+  --body-bg: #0f172a;
+
+  /* OVERLAY */
+  --overlay-dark: rgba(0, 0, 0, 0.6);
+  --overlay-dark-light: rgba(255, 255, 255, 0.08);
+  --overlay-dark-strong: rgba(0, 0, 0, 0.75);
+
+  /* GLASS */
+  --glass-white: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-hover: rgba(255, 255, 255, 0.12);
+  --glass-active: rgba(255, 255, 255, 0.18);
+
+  /* TEXT */
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-footer: #cbd5e1;
+
+  /* SEARCH */
+  --search-bg: rgba(15, 23, 42, 0.7);
+  --search-focus: rgba(30, 41, 59, 0.9);
+  --search-btn: rgba(255, 255, 255, 0.12);
+  --search-btn-hover: #2563eb;
+
+  /* SHADOW */
+  --shadow-dark: rgba(0, 0, 0, 0.5);
+  --shadow-strong: rgba(0, 0, 0, 0.7);
+  --shadow-card: rgba(0, 0, 0, 0.8);
+  --shadow-hover: rgba(0, 0, 0, 0.6);
+
+  /* CARD */
+  --card-bg: #111827;
+
+  /* GRADIENT */
+  --gradient-blue: #0f172a;
+  --gradient-blue-light: #1e293b;
+  --gradient-cyan: #0f766e;
+  --gradient-teal: #134e4a;
+
+  --gradient-card-1: #1e293b;
+  --gradient-card-2: #0f766e;
+
+  /* FOOTER */
+  --footer-bg: #020617;
+}
+
+/* ================= ROOT COLOR ================= */
+:root {
+  /* BASIC */
+  --white: #ffffff;
+  --black: #000000;
+
+  /* BODY */
+  --body-bg: #ffffff;
+
+  /* OVERLAY */
+  --overlay-dark: rgba(0, 0, 0, 0.4);
+  --overlay-dark-light: rgba(0, 0, 0, 0.279);
+  --overlay-dark-strong: rgba(0, 0, 0, 0.5);
+
+  /* GLASS */
+  --glass-white: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-hover: rgba(255, 255, 255, 0.15);
+  --glass-active: rgba(255, 255, 255, 0.25);
+
+  /* TEXT */
+  --text-primary: #ffffff;
+  --text-secondary: #ffffffce;
+  --text-footer: wheat;
+
+  /* SEARCH */
+  --search-bg: rgba(3, 3, 3, 0.383);
+  --search-focus: #000000bd;
+  --search-btn: rgba(255, 255, 255, 0.486);
+  --search-btn-hover: #000000a6;
+
+  /* SHADOW */
+  --shadow-dark: rgba(0, 0, 0, 0.404);
+  --shadow-strong: rgba(0, 0, 0, 0.5);
+  --shadow-card: rgba(0, 0, 0, 1);
+  --shadow-hover: rgba(0, 0, 0, 0.4);
+
+  /* CARD */
+  --card-bg: #2a2a2a;
+
+  /* GRADIENT */
+  --gradient-blue: #1e3a8a;
+  --gradient-blue-light: #2563eb;
+  --gradient-cyan: #06b6d4;
+  --gradient-teal: #14b8a6;
+
+  --gradient-card-1: #1f3c88;
+  --gradient-card-2: #00bcd4;
+
+  /* FOOTER */
+  --footer-bg: rgba(0, 0, 0, 0.897);
+}
+
 /* ================= RESET ================= */
 * {
   margin: 0;
@@ -8,7 +135,7 @@
 
 /* ================= BODY ================= */
 body {
-  background: #fff;
+  background: var(--body-bg);
   height: 100vh;
 }
 
@@ -18,14 +145,13 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
   transition: background-image 1s ease-in-out;
 }
 
 .bg-trans {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.4);
+  background: var(--overlay-dark);
 }
 
 /* ================= HEADER ================= */
@@ -75,9 +201,9 @@ nav {
 
   padding: 34px 25px;
 
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--glass-white);
   backdrop-filter: blur(20px);
-  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  border-left: 1px solid var(--glass-border);
 
   transition: right 0.4s ease;
   z-index: 9;
@@ -88,7 +214,7 @@ nav {
   font-size: 25px;
   font-weight: 500;
   letter-spacing: 1px;
-  color: white;
+  color: var(--text-primary);
 
   padding: 9px 0;
   margin-bottom: 20px;
@@ -108,7 +234,7 @@ nav {
 
   border-radius: 10px;
 
-  color: white;
+  color: var(--text-primary);
   font-size: 16px;
   font-weight: 500;
   text-decoration: none;
@@ -117,12 +243,12 @@ nav {
 }
 
 .nav-menu li a:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: var(--glass-hover);
   transform: translateX(5px);
 }
 
 .nav-menu li a.active {
-  background: rgba(255, 255, 255, 0.25);
+  background: var(--glass-active);
 }
 
 /* HAMBURGER */
@@ -142,7 +268,7 @@ nav {
   width: 28px;
   height: 3px;
 
-  background: white;
+  background: var(--white);
   border-radius: 10px;
 
   transition: 0.3s ease;
@@ -168,16 +294,15 @@ nav {
 /* HEADER TEXT */
 .header-content {
   text-align: left;
-  color: rgb(255, 255, 255);
+  color: var(--text-primary);
 }
-
 
 /* OVERLAY NAV */
 .nav-overlay {
   position: fixed;
   inset: 0;
 
-  background: rgba(0, 0, 0, 0.4);
+  background: var(--overlay-dark);
   backdrop-filter: blur(5px);
 
   opacity: 0;
@@ -231,7 +356,7 @@ main {
 
   font-size: 30px;
   font-weight: 500;
-  color: white;
+  color: var(--text-primary);
 }
 
 .search-container p {
@@ -239,7 +364,7 @@ main {
 
   font-size: 15px;
   font-weight: 100;
-  color: white;
+  color: var(--text-primary);
 }
 
 /* SEARCH BOX */
@@ -253,9 +378,9 @@ main {
   border-radius: 50px;
 
   backdrop-filter: blur(5px);
-  background: rgba(3, 3, 3, 0.383);
+  background: var(--search-bg);
 
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.404);
+  box-shadow: 0 10px 25px var(--shadow-dark);
 }
 
 .search input {
@@ -269,11 +394,11 @@ main {
   outline: none;
 
   background: transparent;
-  color: white;
+  color: var(--text-primary);
 }
 
 .search input:focus {
-  background: #000000bd;
+  background: var(--search-focus);
   transition: 0.5s;
 }
 
@@ -284,13 +409,13 @@ main {
   cursor: pointer;
 
   font-weight: 900;
-  color: black;
-  background: rgba(255, 255, 255, 0.486);
+  color: var(--black);
+  background: var(--search-btn);
 }
 
 .search button:hover {
-  background: #000000a6;
-  color: white;
+  background: var(--search-btn-hover);
+  color: var(--white);
   transition: 1s;
 }
 
@@ -302,7 +427,7 @@ main {
 .advanced-btn a {
   font-size: 14px;
   text-decoration: none;
-  color: #ffffffce;
+  color: var(--text-secondary);
   opacity: 0.8;
 }
 
@@ -317,7 +442,7 @@ main {
   position: fixed;
   inset: 0;
 
-  background: rgba(0, 0, 0, 0.5);
+  background: var(--overlay-dark-strong);
   backdrop-filter: blur(10px);
 
   z-index: 100;
@@ -332,12 +457,12 @@ main {
 
   border-radius: 20px;
 
-  color: white;
+  color: var(--text-primary);
   text-align: left;
 
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--glass-border);
 
   animation: fadeIn 0.4s ease;
 }
@@ -365,14 +490,14 @@ main {
   border-radius: 10px;
 
   font-weight: 500;
-  color: white;
-  background: rgba(0, 0, 0, 0.279);
+  color: var(--text-primary);
+  background: var(--overlay-dark-light);
 
   transition: 0.3s;
 }
 
 .pop-up-container input:focus {
-  background: rgba(255, 255, 255, 0.25);
+  background: var(--glass-active);
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
@@ -384,17 +509,17 @@ select.komponen-advanced {
   appearance: none;
   cursor: pointer;
 
-  color: white;
-  background: rgba(0, 0, 0, 0.279);
+  color: var(--text-primary);
+  background: var(--overlay-dark-light);
 }
 
 select.komponen-advanced:hover {
-  background: rgba(255, 255, 255, 0.25);
+  background: var(--glass-active);
 }
 
 select.komponen-advanced option {
-  background: #000000;
-  color: white;
+  background: var(--black);
+  color: var(--white);
 }
 
 /* BUTTON */
@@ -408,15 +533,15 @@ select.komponen-advanced option {
   font-weight: bold;
   cursor: pointer;
 
-  color: black;
-  background: white;
+  color: var(--black);
+  background: var(--white);
 
   transition: 0.3s;
 }
 
 .pop-up-container button:hover {
-  background: black;
-  color: white;
+  background: var(--black);
+  color: var(--white);
 }
 
 /* CLOSE */
@@ -459,7 +584,7 @@ select.komponen-advanced option {
   min-width: 120px;
 
   text-align: center;
-  color: white;
+  color: var(--text-primary);
 
   cursor: pointer;
   transition: 0.3s;
@@ -467,7 +592,7 @@ select.komponen-advanced option {
 
 .book:hover {
   transform: translateY(-20px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 10px 20px var(--shadow-strong);
 }
 
 .book img {
@@ -503,16 +628,16 @@ select.komponen-advanced option {
   background: linear-gradient(to left, rgba(0, 0, 0, 0.404), transparent);
 }
 
-
-
-
 /* ================= GALERI USER ================= */
 .bg-header-galeri {
-  background: linear-gradient(135deg,
-      #1e3a8a 0%,
-      #2563eb 30%,
-      #06b6d4 70%,
-      #14b8a6 100%);
+  background: linear-gradient(
+    135deg,
+    var(--gradient-blue) 0%,
+    var(--gradient-blue-light) 30%,
+    var(--gradient-cyan) 70%,
+    var(--gradient-teal) 100%
+  );
+
   width: auto;
   height: 30vh;
   display: flex;
@@ -542,7 +667,6 @@ select.komponen-advanced option {
   background: #14141402;
 }
 
-
 /* GRID */
 .book-grid {
   display: grid;
@@ -558,17 +682,17 @@ select.komponen-advanced option {
   display: flex;
   flex-direction: column;
 
-  background: #2a2a2a;
+  background: var(--card-bg);
   border-radius: 15px;
   overflow: hidden;
 
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 1);
+  box-shadow: 0 5px 15px var(--shadow-card);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .book-card:hover {
   transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 15px 30px var(--shadow-hover);
 }
 
 /* IMAGE */
@@ -584,9 +708,16 @@ select.komponen-advanced option {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  color: white;
+  color: var(--text-primary);
+
   border-top: 1px solid rgba(255, 255, 255, 0.05);
-  background: linear-gradient(135deg, #1f3c88, #00bcd4);
+
+  background: linear-gradient(
+    135deg,
+    var(--gradient-card-1),
+    var(--gradient-card-2)
+  );
+
   transition: all 0.4s ease;
 }
 
@@ -623,7 +754,11 @@ select.komponen-advanced option {
 }
 
 .book-card:hover .book-info {
-  background: linear-gradient(135deg, #00bcd4, #1f3c88);
+  background: linear-gradient(
+    135deg,
+    var(--gradient-card-2),
+    var(--gradient-card-1)
+  );
 }
 
 /* ================= FOOTER ================= */
@@ -637,8 +772,8 @@ footer {
   display: grid;
   place-content: center;
 
-  color: wheat;
-  background-color: rgba(0, 0, 0, 0.897);
+  color: var(--text-footer);
+  background-color: var(--footer-bg);
 }
 
 /* ================= ANIMATION ================= */
@@ -653,7 +788,6 @@ footer {
     transform: translateY(0);
   }
 }
-
 /* ================= RESPONSIVE ================= */
 
 /* ================= DESKTOP BESAR ================= */
