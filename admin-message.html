@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Katalog Perpustakaan</title>
+  <link rel="stylesheet" href="css/style-admin.css" />
+</head>
+
+<body>
+  <div class="container">
+    <input type="checkbox" id="navToggle" class="nav-toggle" />
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="sidebar">
+
+      <!-- LOGO -->
+      <div class="logo">
+        <a href="home-admin.html">
+          <img src="src/logo mikro biru.webp" alt="Logo Mikro" />
+        </a>
+      </div>
+
+      <!-- NAVIGATION -->
+      <nav class="nav-menu">
+        <ul>
+          <li>
+            <a href="#" id="themeToggle">
+              <span>🌙</span> Dark Mode
+            </a>
+          </li>
+          <li>
+            <a href="admin-home.html">
+              <span>🏠</span> Dashboard
+            </a>
+          </li>
+          <li>
+            <a href="admin-add-book.html">
+              <span>📚</span> Add Book
+            </a>
+          </li>
+          <li>
+            <a href="admin-galeri.html">
+              <span>🖼️</span> Galeri
+            </a>
+          </li>
+          <li>
+            <a href="admin-message.html" class="active">
+              <span>💬</span> Message
+            </a>
+          </li>
+          <li>
+            <a href="index.html">
+              <span>🚪</span> Logout
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+    </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <div class="main-content">
+
+      <header class="topbar">
+        <h1>Galeri Book</h1>
+        <!-- HUBERGER -->
+        <label for="navToggle" class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+      </header>
+
+      <main>
+
+        <div class="gallery-header">
+          <h2>Pesan Masuk User</h2>
+          <p>Daftar pesan yang dikirim dari halaman Contact Us</p>
+        </div>
+
+        <!-- SEARCH -->
+        <div class="gallery-controls">
+          <input type="text" placeholder="Cari nama atau email..." />
+          <select>
+            <option>Semua Pesan</option>
+            <option>Belum Dibaca</option>
+            <option>Sudah Dibaca</option>
+          </select>
+        </div>
+
+        <!-- TABLE -->
+        <div class="card table-container">
+          <table class="message-table">
+
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Nama</th>
+                <th>Email</th>
+                <th>Subjek</th>
+                <th>Pesan</th>
+                <th>Status</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+
+            <tbody>
+
+              <tr>
+                <td>1</td>
+                <td>Kevin</td>
+                <td>kevin@gmail.com</td>
+                <td>Peminjaman Buku</td>
+                <td>Saya ingin menanyakan stok buku AI terbaru.</td>
+                <td>
+                  <span class="status unread">Belum Dibaca</span>
+                </td>
+                <td class="table-action">
+                  <button class="btn-detail">Detail</button>
+                  <button class="btn-delete">Hapus</button>
+                </td>
+              </tr>
+
+              <tr>
+                <td>2</td>
+                <td>Andi</td>
+                <td>andi@gmail.com</td>
+                <td>Perpustakaan</td>
+                <td>Jam buka perpustakaan sampai jam berapa?</td>
+                <td>
+                  <span class="status read">Sudah Dibaca</span>
+                </td>
+                <td class="table-action">
+                  <button class="btn-detail">Detail</button>
+                  <button class="btn-delete">Hapus</button>
+                </td>
+              </tr>
+
+            </tbody>
+
+          </table>
+        </div>
+
+      </main>
+
+    </div>
+  </div>
+  <script src="js/script.js"></script>
+</body>
+
+</html>

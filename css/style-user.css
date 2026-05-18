@@ -630,13 +630,11 @@ select.komponen-advanced option {
 
 /* ================= GALERI USER ================= */
 .bg-header-galeri {
-  background: linear-gradient(
-    135deg,
-    var(--gradient-blue) 0%,
-    var(--gradient-blue-light) 30%,
-    var(--gradient-cyan) 70%,
-    var(--gradient-teal) 100%
-  );
+  background: linear-gradient(135deg,
+      var(--gradient-blue) 0%,
+      var(--gradient-blue-light) 30%,
+      var(--gradient-cyan) 70%,
+      var(--gradient-teal) 100%);
 
   width: auto;
   height: 30vh;
@@ -712,11 +710,9 @@ select.komponen-advanced option {
 
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 
-  background: linear-gradient(
-    135deg,
-    var(--gradient-card-1),
-    var(--gradient-card-2)
-  );
+  background: linear-gradient(135deg,
+      var(--gradient-card-1),
+      var(--gradient-card-2));
 
   transition: all 0.4s ease;
 }
@@ -754,12 +750,149 @@ select.komponen-advanced option {
 }
 
 .book-card:hover .book-info {
+  background: linear-gradient(135deg,
+      var(--gradient-card-2),
+      var(--gradient-card-1));
+}
+
+
+
+/* ================= CONTACT ================= */
+
+.bg-contact {
+  background: linear-gradient(135deg,
+      var(--gradient-blue) 0%,
+      var(--gradient-blue-light) 30%,
+      var(--gradient-cyan) 70%,
+      var(--gradient-teal) 100%);
+
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+
+
+}
+
+.contact-wrapper{
+  width: 100%;
+  min-height: 70vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  margin-top: -80px;
+  padding: 40px;
+  flex-wrap: wrap;
+}
+
+/* LEFT SIDE */
+.contact-info{
+  max-width: 450px;
+  color: var(--text-primary);
+
+  animation: fadeIn 1s ease;
+}
+
+.contact-info h1{
+  font-size: 50px;
+  margin-bottom: 15px;
+}
+
+.contact-info p{
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 30px;
+}
+
+/* INFO BOX */
+.info-box{
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+
+  margin-bottom: 20px;
+  padding: 18px;
+
+  border-radius: 15px;
+
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255,255,255,0.1);
+
+  transition: 0.3s ease;
+}
+
+.info-box:hover{
+  transform: translateY(-5px);
+  background: rgba(255,255,255,0.12);
+}
+
+.info-box span{
+  font-size: 28px;
+}
+
+.info-box h3{
+  margin-bottom: 5px;
+}
+
+/* CONTACT CARD */
+.contact-card{
+  width: 100%;
+  max-width: 450px;
+
+  margin: 0 !important;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.4),
+    0 0 20px rgba(255,255,255,0.05);
+}
+
+/* TEXTAREA */
+.contact-card input::placeholder,
+.contact-card textarea::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.8;
+}
+
+.contact-card textarea{
+  width: 100%;
+  padding: 12px;
+
+  border: none;
+  outline: none;
+  border-radius: 10px;
+
+  resize: none;
+
+  color: var(--text-primary);
+  background: var(--overlay-dark-light);
+}
+
+/* BUTTON */
+.contact-card button{
   background: linear-gradient(
     135deg,
-    var(--gradient-card-2),
-    var(--gradient-card-1)
+    var(--gradient-cyan),
+    var(--gradient-teal)
   );
+
+  color: white;
 }
+
+.contact-card button:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+
+
 
 /* ================= FOOTER ================= */
 footer {
@@ -788,6 +921,7 @@ footer {
     transform: translateY(0);
   }
 }
+
 /* ================= RESPONSIVE ================= */
 
 /* ================= DESKTOP BESAR ================= */
@@ -927,6 +1061,24 @@ footer {
   .book-info p {
     font-size: 12px;
   }
+  .contact-wrapper{
+    padding: 20px;
+    gap: 30px;
+    margin-top: 0;
+  }
+
+  .contact-info h1{
+    font-size: 35px;
+    text-align: center;
+  }
+
+  .contact-info p{
+    text-align: center;
+  }
+
+  .contact-card{
+    max-width: 100%;
+  }
 }
 
 /* ================= MOBILE ================= */
@@ -960,13 +1112,13 @@ footer {
     font-size: 12px;
   }
 
-  .pop-up-container{
+  .pop-up-container {
     width: 350px;
     font-size: small;
   }
 
-  .pop-up-container input, 
-  .pop-up-container select{
+  .pop-up-container input,
+  .pop-up-container select {
     font-size: xx-small;
   }
 
