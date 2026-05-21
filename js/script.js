@@ -41,16 +41,31 @@ if (bgslide) {
 /* ================= BOOK-BERGERAK ================= */
 const track = document.getElementById("bookTrack");
 if (track) {
-  track.innerHTML += track.innerHTML += track.innerHTML;
+  const books = getBooks();
+  books.forEach((book, index) => {
+    track.innerHTML += `
+      <div class="book" data-index="${index}">
+        <img src="${book.img}" alt="${book.title}">
+      </div>
+    `;
+  });
+  track.innerHTML += track.innerHTML;
   let scrollAmount = 0;
   setInterval(() => {
-    scrollAmount += 140;
+    scrollAmount += 0.5;
     if (scrollAmount >= track.scrollWidth / 2) {
       scrollAmount = 0;
     }
     track.style.transform = `translateX(-${scrollAmount}px)`;
-  }, 2000);
+  }, 20);
 }
+document.addEventListener("click", function (e) {
+  const book = e.target.closest(".book");
+  if (!book) return;
+  const index = book.dataset.index;
+  localStorage.setItem("openBookDetail", index);
+  window.location.href = "user-galeri.html";
+});
 
 
 /* ================= POP-UP ADVANCED ================= */
@@ -376,10 +391,126 @@ if (!localStorage.getItem("books")) {
 }
 
 
+// ================= SIMPAN-BUKU =================
+function addBook() {
+
+  event.preventDefault();
+
+  const title = document.getElementById("judul_buku").value;
+  const author = document.getElementById("pengarang").value;
+  const category = document.getElementById("kategori").value;
+  const abstract = document.getElementById("abstrak").value;
+  const penerbit = document.getElementById("penerbit").value;
+
+  const books = getBooks();
+
+  // cek mode edit
+  const editIndex = localStorage.getItem("editBookIndex");
+
+  const coverInput = document.getElementById("cover");
+  const file = coverInput.files[0];
+
+  if (file) {
+
+    const reader = new FileReader();
+
+    reader.onload = function (e) {
+
+      const newBook = {
+        title,
+        author,
+        category,
+        abstract,
+        penerbit,
+        img: e.target.result
+      };
+
+      saveOrUpdateBook(newBook);
+    };
+
+    reader.readAsDataURL(file);
+
+  } else {
+
+    // kalau tidak upload gambar baru
+    const oldImg =
+      editIndex !== null && editIndex !== ""
+        ? books[editIndex].img
+        : "src/default-book.webp";
+
+    const newBook = {
+      title,
+      author,
+      category,
+      abstract,
+      penerbit,
+      img: oldImg
+    };
+
+    saveOrUpdateBook(newBook);
+  }
+
+  // ================= EDIT =================
+  if (editIndex !== null && editIndex !== "") {
+
+    books[editIndex] = newBook;
+
+    localStorage.removeItem("editBookIndex");
+
+    alert("Buku berhasil diupdate!");
+  }
+
+  // ================= ADD =================
+  else {
+
+    books.push(newBook);
+
+    alert("Buku berhasil ditambahkan!");
+
+  }
+
+  saveBooks(books);
+
+  window.location.href = "admin-galeri.html";
+}
+
+
+// ================= UPDATE-BUKU =================
+function saveOrUpdateBook(newBook) {
+
+  const books = getBooks();
+
+  const editIndex = localStorage.getItem("editBookIndex");
+
+  // MODE EDIT
+  if (editIndex !== null && editIndex !== "") {
+
+    books[editIndex] = newBook;
+
+    localStorage.removeItem("editBookIndex");
+
+    alert("Buku berhasil diupdate!");
+
+  }
+
+  // MODE ADD
+  else {
+
+    books.push(newBook);
+
+    alert("Buku berhasil ditambahkan!");
+  }
+
+  saveBooks(books);
+
+  window.location.href = "admin-galeri.html";
+}
+
+
 // ================= TEMPLATE CARD =================
 function createCardAdmin(book, index) {
   return `
-    <div class="book-card" data-index="${index}">
+    <div class="book-card btn-detail" data-index="${index}">
       <img src="${book.img}">
 
       <div class="book-info">
@@ -395,10 +526,9 @@ function createCardAdmin(book, index) {
     </div>
   `;
 }
-
 function createCardUser(book, index) {
   return `
-    <div class="book-card" data-index="${index}">
+    <div class="book-card btn-detail" data-index="${index}">
       <img src="${book.img}">
 
       <div class="book-info">
@@ -409,19 +539,49 @@ function createCardUser(book, index) {
   `;
 }
 
+
+// ================= RENDER =================
 // ================= RENDER - admin =================
 const bookGridAdmin = document.getElementById("bookGridAdmin");
 const dataCount = document.getElementById("dataCount");
-
 function renderBooksAdmin() {
   const books = getBooks();
   bookGridAdmin.innerHTML = "";
-
   books.forEach((book, index) => {
     bookGridAdmin.innerHTML += createCardAdmin(book, index);
   });
-
   updateCount();
+}
+if (document.getElementById("bookGridAdmin")) {
+  renderBooksAdmin();
+}
+
+// ================= RENDER-USER =================
+const bookGridUser = document.getElementById("bookGridUser");
+function renderBooksUser() {
+  console.log("USER RENDER JALAN");
+  if (!bookGridUser) return;
+  const books = getBooks();
+  console.log(books);
+  bookGridUser.innerHTML = "";
+  books.forEach((book, index) => {
+    bookGridUser.innerHTML += createCardUser(book, index);
+  });
+}
+if (document.getElementById("bookGridUser")) {
+  renderBooksUser();
+  setTimeout(() => {
+
+    const openIndex = localStorage.getItem("openBookDetail");
+
+    if (openIndex !== null) {
+
+      showDetail(openIndex);
+
+      localStorage.removeItem("openBookDetail");
+    }
+
+  }, 800);
 }
 
 // ================= COUNT =================
@@ -430,6 +590,9 @@ function updateCount() {
   dataCount.textContent = total;
 }
 
+
+
+// ================= TOOLS BOOK =================
 // ================= DELETE ONE =================
 function deleteBook(index) {
   let books = getBooks();
@@ -440,23 +603,229 @@ function deleteBook(index) {
 
 // ================= DELETE ALL =================
 const btnHapusSemua = document.getElementById("btnHapusSemua");
-
 if (btnHapusSemua) {
   btnHapusSemua.addEventListener("click", () => {
     const total = getBooks().length;
-
     if (total === 0) return;
-
     if (confirm(`Yakin hapus semua (${total} buku)?`)) {
       localStorage.removeItem("books");
-      renderBooks();
+      renderBooksAdmin();
     }
   });
 }
 
+/* ================= EDIT BOOK ================= */
+function loadEditBook() {
+
+  const editIndex = localStorage.getItem("editBookIndex");
+
+  // kalau tidak ada edit
+  if (editIndex === null || editIndex === "") return;
+
+  const books = getBooks();
+  const book = books[editIndex];
+
+  // isi form
+  document.getElementById("judul_buku").value = book.title;
+  document.getElementById("pengarang").value = book.author;
+  document.getElementById("kategori").value = book.category;
+  document.getElementById("abstrak").value = book.abstract;
+  document.getElementById("penerbit").value = book.penerbit;
+
+  // ubah tombol
+  const submitBtn = document.querySelector(".btn-primary");
+  submitBtn.innerHTML = "💾 Update";
+
+}
+if (document.getElementById("formTambah")) {
+  loadEditBook();
+}
+
+// ================= CLOSE DETAIL =================
+document.addEventListener("click", function (e) {
+
+  const modal =
+    document.getElementById("detailModal");
+
+  if (e.target.classList.contains("close-detail")) {
+    modal.style.display = "none";
+  }
+
+  if (e.target === modal) {
+    modal.style.display = "none";
+  }
+
+});
+
+// ================= CREATE DETAIL MODAL =================
+document.body.insertAdjacentHTML("beforeend", `
+
+
+<div id="detailModal" class="detail-modal">
+
+  <div class="detail-content">
+
+    <button class="close-detail">&times;</button>
+
+    <div class="detail-left">
+
+      <img id="detailImg" src="" alt="">
+
+      <div class="quote-box">
+        <span class="quote-icon">❝</span>
+
+        <p id="detailQuote">
+          Kutipan buku akan tampil di sini...
+        </p>
+
+        <h4 id="detailQuoteTitle">- Judul Buku</h4>
+      </div>
+
+    </div>
+
+    <!-- RIGHT -->
+    <div class="detail-right">
+
+      <h1 id="detailTitle"></h1>
+
+      <div class="title-line"></div>
+
+      <!-- INFO -->
+      <div class="detail-grid">
+
+        <div class="info-card">
+          <div class="info-icon pink">👤</div>
+
+          <div>
+            <span>Pengarang</span>
+            <h3 id="detailAuthor"></h3>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon purple">📚</div>
+
+          <div>
+            <span>Kategori</span>
+            <h3 id="detailCategory"></h3>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon blue">🏢</div>
+
+          <div>
+            <span>Penerbit</span>
+            <h3 id="detailPublisher"></h3>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon green">📅</div>
+
+          <div>
+            <span>Tahun</span>
+            <h3 id="detailYear"></h3>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ABSTRAK -->
+      <div class="abstract-box">
+
+        <h2>📖 Abstrak</h2>
+
+        <div class="abstract-content">
+          <p id="detailAbstract"></p>
+        </div>
+
+      </div>
+
+      <!-- TEMA -->
+      <div class="theme-box">
+
+        <div class="theme-icon">❤️</div>
+
+        <div>
+          <h3>Tema Utama</h3>
+          <p id="detailTheme"></p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+`);
+
+function showDetail(index) {
+
+  const books = getBooks();
+  const book = books[index];
+
+  document.getElementById("detailImg").src = book.img;
+
+  document.getElementById("detailTitle").textContent =
+    book.title;
+
+  document.getElementById("detailAuthor").textContent =
+    book.author;
+
+  document.getElementById("detailCategory").textContent =
+    book.category;
+
+  document.getElementById("detailPublisher").textContent =
+    book.penerbit;
+
+  document.getElementById("detailAbstract").textContent =
+    book.abstract;
+
+  // ambil tahun dari penerbit
+  const tahun =
+    book.penerbit.match(/\d{4}/);
+
+  document.getElementById("detailYear").textContent =
+    tahun ? tahun[0] : "-";
+
+  // quote otomatis
+  document.getElementById("detailQuote").textContent =
+    book.abstract.substring(0, 120) + "...";
+
+  document.getElementById("detailQuoteTitle").textContent =
+    "- " + book.title;
+
+  // tema otomatis
+  document.getElementById("detailTheme").textContent =
+    "Cinta, Pengorbanan, Persahabatan, Konflik Batin";
+
+  document.getElementById("detailModal").style.display =
+    "flex";
+}
+
+function showDetail(index) {
+  const books = getBooks();
+  const book = books[index];
+  document.getElementById("detailImg").src = book.img;
+  document.getElementById("detailTitle").textContent = book.title;
+  document.getElementById("detailAuthor").textContent = book.author;
+  document.getElementById("detailCategory").textContent = book.category;
+  document.getElementById("detailPublisher").textContent = book.penerbit;
+  document.getElementById("detailAbstract").textContent = book.abstract;
+  document.getElementById("detailModal").style.display = "flex";
+}
+
 // ================= EVENT LISTENER =================
 document.addEventListener("click", function (e) {
-  const card = e.target.closest(".book-card");
+
+  // cari card
+  const card =
+    e.target.closest(".book-card") ||
+    e.target.closest(".book");
+
   if (!card) return;
 
   const index = card.dataset.index;
@@ -468,47 +837,23 @@ document.addEventListener("click", function (e) {
     }
   }
 
-  // EDIT (sementara)
+  // EDIT
   if (e.target.classList.contains("btn-edit")) {
-    alert("Fitur edit nanti kita bikin 😎");
+    localStorage.setItem("editBookIndex", index);
+    window.location.href = "admin-add-book.html";
   }
 
   // DETAIL
-  if (e.target.classList.contains("btn-detail")) {
-    const books = getBooks();
-    const book = books[index];
-    alert(`Judul: ${book.title}\nKategori: ${book.category}`);
+  if (e.target.closest(".btn-detail")) {
+    showDetail(index);
   }
+
 });
 
 
 
-// ================= RENDER - admin =================
-const bookGridUser = document.getElementById("bookGridUser");
-
-function renderBooksUser() {
-  console.log("USER RENDER JALAN");
-
-  if (!bookGridUser) return;
-
-  const books = getBooks();
-  console.log(books);
-
-  bookGridUser.innerHTML = "";
-
-  books.forEach((book, index) => {
-    bookGridUser.innerHTML += createCardUser(book, index);
-  });
-}
 
 
 
 
 
-if (document.getElementById("bookGridAdmin")) {
-  renderBooksAdmin();
-}
-
-if (document.getElementById("bookGridUser")) {
-  renderBooksUser();
-}

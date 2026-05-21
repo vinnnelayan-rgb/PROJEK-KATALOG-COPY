@@ -8,7 +8,7 @@ select,
 textarea,
 a,
 button {
-  transition: 
+  transition:
     background 0.4s ease,
     color 0.4s ease,
     border-color 0.4s ease,
@@ -92,6 +92,7 @@ button {
   /* OVERLAY */
   --overlay: rgba(0, 0, 0, 0.2);
 }
+
 /* ================= RESET ================= */
 * {
   margin: 0;
@@ -196,11 +197,9 @@ body {
 
 /* ACTIVE */
 .nav-menu a.active {
-  background: linear-gradient(
-    135deg,
-    var(--primary),
-    var(--primary-dark)
-  );
+  background: linear-gradient(135deg,
+      var(--primary),
+      var(--primary-dark));
   color: #fff;
   box-shadow: 0 5px 15px rgba(0, 188, 212, 0.3);
 }
@@ -332,11 +331,9 @@ textarea {
 
 /* PRIMARY */
 .btn-primary {
-  background: linear-gradient(
-    135deg,
-    var(--primary),
-    var(--primary-dark)
-  );
+  background: linear-gradient(135deg,
+      var(--primary),
+      var(--primary-dark));
   color: #fff;
 }
 
@@ -498,11 +495,9 @@ textarea {
   color: #fff;
   cursor: pointer;
 
-  background: linear-gradient(
-    135deg,
-    var(--btn-delete),
-    var(--btn-delete-hover)
-  );
+  background: linear-gradient(135deg,
+      var(--btn-delete),
+      var(--btn-delete-hover));
 
   transition: 0.3s;
 }
@@ -510,6 +505,103 @@ textarea {
 #btnHapusSemua:hover {
   transform: translateY(-2px) scale(1.03);
 }
+
+/* ================= DETAIL MODAL ================= */
+
+.detail-modal {
+  display: none;
+
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+
+  z-index: 999;
+
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+}
+
+.detail-content {
+  background: var(--bg-card);
+
+  width: 100%;
+  max-width: 850px;
+
+  border-radius: 20px;
+  overflow: hidden;
+
+  display: flex;
+  gap: 20px;
+
+  padding: 20px;
+
+  position: relative;
+
+  animation: popup 0.3s ease;
+}
+
+@keyframes popup {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.detail-content img {
+  width: 250px;
+  height: 350px;
+
+  object-fit: cover;
+
+  border-radius: 15px;
+}
+
+.detail-info {
+  flex: 1;
+}
+
+.detail-info h2 {
+  margin-bottom: 15px;
+}
+
+.detail-info p {
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.close-detail {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.close-detail {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+
+  font-size: 30px;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
 
 /* ================= MESSAGE TABLE ================= */
 
@@ -523,11 +615,9 @@ textarea {
 }
 
 .message-table thead {
-  background: linear-gradient(
-    135deg,
-    var(--primary),
-    var(--primary-dark)
-  );
+  background: linear-gradient(135deg,
+      var(--primary),
+      var(--primary-dark));
 
   color: white;
 }
@@ -641,8 +731,18 @@ textarea {
     display: flex;
   }
 
-  .nav-toggle:checked ~ .sidebar {
+  .nav-toggle:checked~.sidebar {
     transform: translateX(0);
+  }
+
+  .detail-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .detail-content img {
+    width: 200px;
+    height: 280px;
   }
 
   .message-table {
