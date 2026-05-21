@@ -116,8 +116,6 @@ if (!localStorage.getItem("books")) {
       category: "Fiction",
       img: "src/book-Remember When.webp",
       abstract: "Kisah cinta dari masa SMA selalu menjadi tema yang tidak pernah basi untuk diangkat ke dalam sebuah novel.",
-      judulSeri: "-",
-      noPanggil: "808.83/EFE.r",
       penerbit: "Gagas Media : JAKARTA., 2011"
     },
     {
@@ -662,98 +660,64 @@ document.body.insertAdjacentHTML("beforeend", `
 
 
 <div id="detailModal" class="detail-modal">
-
   <div class="detail-content">
-
     <button class="close-detail">&times;</button>
 
     <div class="detail-left">
-
-      <img id="detailImg" src="" alt="">
-
-      <div class="quote-box">
-        <span class="quote-icon">❝</span>
-
-        <p id="detailQuote">
-          Kutipan buku akan tampil di sini...
-        </p>
-
-        <h4 id="detailQuoteTitle">- Judul Buku</h4>
-      </div>
-
+      <img id="detailImg">
     </div>
 
-    <!-- RIGHT -->
     <div class="detail-right">
-
       <h1 id="detailTitle"></h1>
-
       <div class="title-line"></div>
-
-      <!-- INFO -->
-      <div class="detail-grid">
-
-        <div class="info-card">
-          <div class="info-icon pink">👤</div>
-
-          <div>
-            <span>Pengarang</span>
-            <h3 id="detailAuthor"></h3>
+      <div class="start-scrol">
+        <div class="detail-grid">
+        
+          <div class="info-card">
+            <div class="info-icon green">👤</div>
+            <div>
+              <span>Pengarang</span>
+              <h3 id="detailAuthor"></h3>
+            </div>
           </div>
+
+          <div class="info-card">
+            <div class="info-icon blue">📚</div>
+            <div>
+              <span>Kategori</span>
+              <h3 id="detailCategory"></h3>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon pink">🏢</div>
+            <div>
+              <span>Penerbit</span>
+              <h3 id="detailPublisher"></h3>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon purple">📅</div>
+            <div>
+              <span>Tahun</span>
+              <h3 id="detailYear"></h3>
+            </div>
+          </div>
+
         </div>
 
-        <div class="info-card">
-          <div class="info-icon purple">📚</div>
+        <!-- ABSTRAK -->
+        <div class="abstract-box">
 
-          <div>
-            <span>Kategori</span>
-            <h3 id="detailCategory"></h3>
+          <h2>📖 Abstrak</h2>
+
+          <div class="abstract-content">
+            <p id="detailAbstract"></p>
           </div>
+
         </div>
-
-        <div class="info-card">
-          <div class="info-icon blue">🏢</div>
-
-          <div>
-            <span>Penerbit</span>
-            <h3 id="detailPublisher"></h3>
-          </div>
-        </div>
-
-        <div class="info-card">
-          <div class="info-icon green">📅</div>
-
-          <div>
-            <span>Tahun</span>
-            <h3 id="detailYear"></h3>
-          </div>
-        </div>
-
       </div>
-
-      <!-- ABSTRAK -->
-      <div class="abstract-box">
-
-        <h2>📖 Abstrak</h2>
-
-        <div class="abstract-content">
-          <p id="detailAbstract"></p>
-        </div>
-
-      </div>
-
-      <!-- TEMA -->
-      <div class="theme-box">
-
-        <div class="theme-icon">❤️</div>
-
-        <div>
-          <h3>Tema Utama</h3>
-          <p id="detailTheme"></p>
-        </div>
-
-      </div>
-
     </div>
 
   </div>
@@ -761,50 +725,6 @@ document.body.insertAdjacentHTML("beforeend", `
 </div>
 
 `);
-
-function showDetail(index) {
-
-  const books = getBooks();
-  const book = books[index];
-
-  document.getElementById("detailImg").src = book.img;
-
-  document.getElementById("detailTitle").textContent =
-    book.title;
-
-  document.getElementById("detailAuthor").textContent =
-    book.author;
-
-  document.getElementById("detailCategory").textContent =
-    book.category;
-
-  document.getElementById("detailPublisher").textContent =
-    book.penerbit;
-
-  document.getElementById("detailAbstract").textContent =
-    book.abstract;
-
-  // ambil tahun dari penerbit
-  const tahun =
-    book.penerbit.match(/\d{4}/);
-
-  document.getElementById("detailYear").textContent =
-    tahun ? tahun[0] : "-";
-
-  // quote otomatis
-  document.getElementById("detailQuote").textContent =
-    book.abstract.substring(0, 120) + "...";
-
-  document.getElementById("detailQuoteTitle").textContent =
-    "- " + book.title;
-
-  // tema otomatis
-  document.getElementById("detailTheme").textContent =
-    "Cinta, Pengorbanan, Persahabatan, Konflik Batin";
-
-  document.getElementById("detailModal").style.display =
-    "flex";
-}
 
 function showDetail(index) {
   const books = getBooks();
@@ -815,6 +735,9 @@ function showDetail(index) {
   document.getElementById("detailCategory").textContent = book.category;
   document.getElementById("detailPublisher").textContent = book.penerbit;
   document.getElementById("detailAbstract").textContent = book.abstract;
+  // ambil tahun dari penerbit
+  const tahun = book.penerbit.match(/\d{4}/);
+  document.getElementById("detailYear").textContent = tahun ? tahun[0] : "-";
   document.getElementById("detailModal").style.display = "flex";
 }
 
