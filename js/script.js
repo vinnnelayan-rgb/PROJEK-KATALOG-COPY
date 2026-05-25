@@ -516,7 +516,6 @@ function createCardAdmin(book, index) {
         <p>Kategori: ${book.category}</p>
 
         <div class="book-actions">
-          <button class="btn-detail">Detail</button>
           <button class="btn-edit">Edit</button>
           <button class="btn-delete">Hapus</button>
         </div>
@@ -657,8 +656,6 @@ document.addEventListener("click", function (e) {
 
 // ================= CREATE DETAIL MODAL =================
 document.body.insertAdjacentHTML("beforeend", `
-
-
 <div id="detailModal" class="detail-modal">
   <div class="detail-content">
     <button class="close-detail">&times;</button>
@@ -725,7 +722,6 @@ document.body.insertAdjacentHTML("beforeend", `
 </div>
 
 `);
-
 function showDetail(index) {
   const books = getBooks();
   const book = books[index];
@@ -743,36 +739,57 @@ function showDetail(index) {
 
 // ================= EVENT LISTENER =================
 document.addEventListener("click", function (e) {
-
   // cari card
   const card =
     e.target.closest(".book-card") ||
     e.target.closest(".book");
-
   if (!card) return;
-
   const index = card.dataset.index;
-
   // DELETE
   if (e.target.classList.contains("btn-delete")) {
     if (confirm("Yakin hapus buku ini?")) {
       deleteBook(index);
     }
   }
-
   // EDIT
   if (e.target.classList.contains("btn-edit")) {
     localStorage.setItem("editBookIndex", index);
     window.location.href = "admin-add-book.html";
   }
-
   // DETAIL
   if (e.target.closest(".btn-detail")) {
     showDetail(index);
   }
-
 });
 
+// Ambil input search
+const searchInput = document.getElementById("searchInput");
+
+// Ambil semua card
+const bookCards = document.querySelectorAll(".book-card");
+
+// Event saat mengetik
+searchInput.addEventListener("keyup", function () {
+
+  // Ambil text input lalu ubah ke huruf kecil
+  const keyword = searchInput.value.toLowerCase();
+
+  // Loop semua card
+  bookCards.forEach(card => {
+
+    // Ambil isi text card
+    const text = card.textContent.toLowerCase();
+
+    // Cek apakah cocok
+    if (text.includes(keyword)) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+
+  });
+
+});
 
 
 
