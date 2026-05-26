@@ -69,25 +69,69 @@ document.addEventListener("click", function (e) {
 
 
 /* ================= POP-UP ADVANCED ================= */
+
 const openBtn = document.getElementById("openAdvanced");
-const modalAdvanced = document.getElementById("advanced-pop-up");
-const closeBtn = document.querySelector(".close");
-if (openBtn && modalAdvanced && closeBtn) {
-  openBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    modalAdvanced.style.display = "block";
-  });
 
-  closeBtn.addEventListener("click", () => {
-    modalAdvanced.style.display = "none";
-  });
+/* ===== CREATE POPUP FROM JS ===== */
+const modalAdvanced = document.createElement("div");
+modalAdvanced.id = "advanced-pop-up";
+modalAdvanced.className = "pop-up";
 
-  window.addEventListener("click", (e) => {
-    if (e.target === modalAdvanced) {
-      modalAdvanced.style.display = "none";
-    }
-  });
+modalAdvanced.innerHTML = `
+    <div class="pop-up-container">
+        <span class="close">&times;</span>
+
+        <h2>ADVANCED SEARCH</h2>
+
+        <form>
+            <label>Judul:</label>
+            <input type="text" class="komponen-advanced" placeholder="Masukkan Judul" />
+
+            <label>Pengarang:</label>
+            <input type="text" class="komponen-advanced" placeholder="Masukkan Nama Pengarang" />
+
+            <label>Kategori:</label>
+            <select class="komponen-advanced">
+                <option value="" disabled selected hidden>All Collection</option>
+                <option>Fiction</option>
+                <option>KPS</option>
+                <option>Reference</option>
+                <option>Text Book</option>
+            </select>
+
+            <label>Tahun Terbit:</label>
+            <input type="text" class="komponen-advanced" placeholder="Masukkan Tahun Terbit" />
+
+            <button type="submit">Pencarian</button>
+        </form>
+    </div>
+`;
+
+/* ===== MASUKKAN KE BODY ===== */
+document.body.appendChild(modalAdvanced);
+
+/* ===== CLOSE BUTTON ===== */
+const closeBtn = modalAdvanced.querySelector(".close");
+
+/* ===== OPEN POPUP ===== */
+if (openBtn) {
+    openBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        modalAdvanced.style.display = "block";
+    });
 }
+
+/* ===== CLOSE POPUP ===== */
+closeBtn.addEventListener("click", () => {
+    modalAdvanced.style.display = "none";
+});
+
+/* ===== CLOSE CLICK OUTSIDE ===== */
+window.addEventListener("click", (e) => {
+    if (e.target === modalAdvanced) {
+        modalAdvanced.style.display = "none";
+    }
+});
 
 
 // ================= TOOLS =================
@@ -740,9 +784,7 @@ function showDetail(index) {
 // ================= EVENT LISTENER =================
 document.addEventListener("click", function (e) {
   // cari card
-  const card =
-    e.target.closest(".book-card") ||
-    e.target.closest(".book");
+  const card = e.target.closest(".book-card")
   if (!card) return;
   const index = card.dataset.index;
   // DELETE
@@ -761,39 +803,4 @@ document.addEventListener("click", function (e) {
     showDetail(index);
   }
 });
-
-// Ambil input search
-const searchInput = document.getElementById("searchInput");
-
-// Ambil semua card
-const bookCards = document.querySelectorAll(".book-card");
-
-// Event saat mengetik
-searchInput.addEventListener("keyup", function () {
-
-  // Ambil text input lalu ubah ke huruf kecil
-  const keyword = searchInput.value.toLowerCase();
-
-  // Loop semua card
-  bookCards.forEach(card => {
-
-    // Ambil isi text card
-    const text = card.textContent.toLowerCase();
-
-    // Cek apakah cocok
-    if (text.includes(keyword)) {
-      card.style.display = "block";
-    } else {
-      card.style.display = "none";
-    }
-
-  });
-
-});
-
-
-
-
-
-
 
