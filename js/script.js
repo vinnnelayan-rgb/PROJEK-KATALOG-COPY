@@ -222,7 +222,7 @@ if (!localStorage.getItem("books")) {
       title: "Kana di Negeri Kiwi",
       author: "Rosemary Kesauly",
       category: "Fiction",
-      img: "src/book-Kana di Negeri Kiwi.webp",
+      img: "src/src/book-Kana di Negeri Kiwi.webp",
       abstract: "Mengisahkan perjalanan hidup seorang remaja bernama Kana. Kana harus pindah dari Yogyakarta ke Selandia Baru, yang dikenal sebagai Negeri Kiwi, setelah orang tuanya bercerai. Novel ini mengeksplorasi tema penyesuaian diri, persahabatan, dan pertumbuhan pribadi, serta bagaimana Kana menghadapi berbagai tantangan dalam hidup barunya di Negeri Kiwi.",
       penerbit: "Gramedia Pustaka Utama : Jakarta, 2005"
     },
