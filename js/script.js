@@ -27,7 +27,12 @@ if (themeToggle) {
 
 /* ================= BG-BERGERAK ================= */
 const bgslide = document.getElementById("bg-slide");
-const images = ["src/bg1.webp", "src/bg2.webp", "src/bg3.webp", "src/bg4.webp"];
+const images = [
+  "src/bg1.webp",
+  "src/bg2.webp",
+  "src/bg3.webp",
+  "src/bg4.webp"
+];
 if (bgslide) {
   let i = 0;
   bgslide.style.backgroundImage = `url(${images[0]})`;
@@ -35,6 +40,15 @@ if (bgslide) {
     bgslide.style.backgroundImage = `url(${images[i]})`;
     i = (i + 1) % images.length;
   }, 5000);
+}
+
+
+// ================= TOOLS =================
+function getBooks() {
+  return JSON.parse(localStorage.getItem("books")) || [];
+}
+function saveBooks(books) {
+  localStorage.setItem("books", JSON.stringify(books));
 }
 
 
@@ -52,7 +66,7 @@ if (track) {
   track.innerHTML += track.innerHTML;
   let scrollAmount = 0;
   setInterval(() => {
-    scrollAmount += 0.5;
+    scrollAmount += 0.3;
     if (scrollAmount >= track.scrollWidth / 2) {
       scrollAmount = 0;
     }
@@ -66,81 +80,6 @@ document.addEventListener("click", function (e) {
   localStorage.setItem("openBookDetail", index);
   window.location.href = "user-galeri.html";
 });
-
-
-/* ================= POP-UP ADVANCED ================= */
-
-const openBtn = document.getElementById("openAdvanced");
-
-/* ===== CREATE POPUP FROM JS ===== */
-const modalAdvanced = document.createElement("div");
-modalAdvanced.id = "advanced-pop-up";
-modalAdvanced.className = "pop-up";
-
-modalAdvanced.innerHTML = `
-    <div class="pop-up-container">
-        <span class="close">&times;</span>
-
-        <h2>ADVANCED SEARCH</h2>
-
-        <form>
-            <label>Judul:</label>
-            <input type="text" class="komponen-advanced" placeholder="Masukkan Judul" />
-
-            <label>Pengarang:</label>
-            <input type="text" class="komponen-advanced" placeholder="Masukkan Nama Pengarang" />
-
-            <label>Kategori:</label>
-            <select class="komponen-advanced">
-                <option value="" disabled selected hidden>All Collection</option>
-                <option>Fiction</option>
-                <option>KPS</option>
-                <option>Reference</option>
-                <option>Text Book</option>
-            </select>
-
-            <label>Tahun Terbit:</label>
-            <input type="text" class="komponen-advanced" placeholder="Masukkan Tahun Terbit" />
-
-            <button type="submit">Pencarian</button>
-        </form>
-    </div>
-`;
-
-/* ===== MASUKKAN KE BODY ===== */
-document.body.appendChild(modalAdvanced);
-
-/* ===== CLOSE BUTTON ===== */
-const closeBtn = modalAdvanced.querySelector(".close");
-
-/* ===== OPEN POPUP ===== */
-if (openBtn) {
-    openBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        modalAdvanced.style.display = "block";
-    });
-}
-
-/* ===== CLOSE POPUP ===== */
-closeBtn.addEventListener("click", () => {
-    modalAdvanced.style.display = "none";
-});
-
-/* ===== CLOSE CLICK OUTSIDE ===== */
-window.addEventListener("click", (e) => {
-    if (e.target === modalAdvanced) {
-        modalAdvanced.style.display = "none";
-    }
-});
-
-
-// ================= TOOLS =================
-function getBooks() {
-  return JSON.parse(localStorage.getItem("books")) || [];
-}
-function saveBooks(books) {
-  localStorage.setItem("books", JSON.stringify(books));
-}
 
 
 // ================= DATA BASE KATALOG BUKU =================
@@ -433,31 +372,22 @@ if (!localStorage.getItem("books")) {
 }
 
 
-// ================= SIMPAN-BUKU =================
+// ================= Action Admin =================
 function addBook() {
-
   event.preventDefault();
-
   const title = document.getElementById("judul_buku").value;
   const author = document.getElementById("pengarang").value;
   const category = document.getElementById("kategori").value;
   const abstract = document.getElementById("abstrak").value;
   const penerbit = document.getElementById("penerbit").value;
-
   const books = getBooks();
-
-  // cek mode edit
   const editIndex = localStorage.getItem("editBookIndex");
-
   const coverInput = document.getElementById("cover");
   const file = coverInput.files[0];
-
+  // ================= Save =================
   if (file) {
-
     const reader = new FileReader();
-
     reader.onload = function (e) {
-
       const newBook = {
         title,
         author,
@@ -466,20 +396,12 @@ function addBook() {
         penerbit,
         img: e.target.result
       };
-
       saveOrUpdateBook(newBook);
     };
-
     reader.readAsDataURL(file);
-
-  } else {
-
-    // kalau tidak upload gambar baru
-    const oldImg =
-      editIndex !== null && editIndex !== ""
-        ? books[editIndex].img
-        : "src/default-book.webp";
-
+  }
+  else {
+    const oldImg = editIndex !== null && editIndex !== "" ? books[editIndex].img : "src/default-book.webp";
     const newBook = {
       title,
       author,
@@ -488,63 +410,36 @@ function addBook() {
       penerbit,
       img: oldImg
     };
-
     saveOrUpdateBook(newBook);
   }
-
   // ================= EDIT =================
   if (editIndex !== null && editIndex !== "") {
-
     books[editIndex] = newBook;
-
     localStorage.removeItem("editBookIndex");
-
     alert("Buku berhasil diupdate!");
   }
-
   // ================= ADD =================
   else {
-
     books.push(newBook);
-
     alert("Buku berhasil ditambahkan!");
-
   }
-
   saveBooks(books);
-
   window.location.href = "admin-galeri.html";
 }
-
-
 // ================= UPDATE-BUKU =================
 function saveOrUpdateBook(newBook) {
-
   const books = getBooks();
-
   const editIndex = localStorage.getItem("editBookIndex");
-
-  // MODE EDIT
   if (editIndex !== null && editIndex !== "") {
-
     books[editIndex] = newBook;
-
     localStorage.removeItem("editBookIndex");
-
     alert("Buku berhasil diupdate!");
-
   }
-
-  // MODE ADD
   else {
-
     books.push(newBook);
-
     alert("Buku berhasil ditambahkan!");
   }
-
   saveBooks(books);
-
   window.location.href = "admin-galeri.html";
 }
 
@@ -554,11 +449,9 @@ function createCardAdmin(book, index) {
   return `
     <div class="book-card btn-detail" data-index="${index}">
       <img src="${book.img}">
-
       <div class="book-info">
         <h3>${book.title}</h3>
         <p>Kategori: ${book.category}</p>
-
         <div class="book-actions">
           <button class="btn-edit">Edit</button>
           <button class="btn-delete">Hapus</button>
@@ -571,7 +464,6 @@ function createCardUser(book, index) {
   return `
     <div class="book-card btn-detail" data-index="${index}">
       <img src="${book.img}">
-
       <div class="book-info">
         <h3>${book.title}</h3>
         <p>Kategori: ${book.category}</p>
@@ -582,6 +474,11 @@ function createCardUser(book, index) {
 
 
 // ================= RENDER =================
+// ================= COUNT =================
+function updateCount() {
+  const total = getBooks().length;
+  dataCount.textContent = total;
+}
 // ================= RENDER - admin =================
 const bookGridAdmin = document.getElementById("bookGridAdmin");
 const dataCount = document.getElementById("dataCount");
@@ -596,11 +493,9 @@ function renderBooksAdmin() {
 if (document.getElementById("bookGridAdmin")) {
   renderBooksAdmin();
 }
-
 // ================= RENDER-USER =================
 const bookGridUser = document.getElementById("bookGridUser");
 function renderBooksUser() {
-  console.log("USER RENDER JALAN");
   if (!bookGridUser) return;
   const books = getBooks();
   console.log(books);
@@ -612,25 +507,13 @@ function renderBooksUser() {
 if (document.getElementById("bookGridUser")) {
   renderBooksUser();
   setTimeout(() => {
-
     const openIndex = localStorage.getItem("openBookDetail");
-
     if (openIndex !== null) {
-
       showDetail(openIndex);
-
       localStorage.removeItem("openBookDetail");
     }
-
   }, 800);
 }
-
-// ================= COUNT =================
-function updateCount() {
-  const total = getBooks().length;
-  dataCount.textContent = total;
-}
-
 
 
 // ================= TOOLS BOOK =================
@@ -641,7 +524,6 @@ function deleteBook(index) {
   saveBooks(books);
   renderBooksAdmin();
 }
-
 // ================= DELETE ALL =================
 const btnHapusSemua = document.getElementById("btnHapusSemua");
 if (btnHapusSemua) {
@@ -654,118 +536,92 @@ if (btnHapusSemua) {
     }
   });
 }
-
 /* ================= EDIT BOOK ================= */
 function loadEditBook() {
-
   const editIndex = localStorage.getItem("editBookIndex");
-
   // kalau tidak ada edit
   if (editIndex === null || editIndex === "") return;
-
   const books = getBooks();
   const book = books[editIndex];
-
   // isi form
   document.getElementById("judul_buku").value = book.title;
   document.getElementById("pengarang").value = book.author;
   document.getElementById("kategori").value = book.category;
   document.getElementById("abstrak").value = book.abstract;
   document.getElementById("penerbit").value = book.penerbit;
-
   // ubah tombol
   const submitBtn = document.querySelector(".btn-primary");
   submitBtn.innerHTML = "💾 Update";
-
 }
 if (document.getElementById("formTambah")) {
   loadEditBook();
 }
-
 // ================= CLOSE DETAIL =================
 document.addEventListener("click", function (e) {
-
   const modal =
     document.getElementById("detailModal");
-
   if (e.target.classList.contains("close-detail")) {
     modal.style.display = "none";
   }
-
   if (e.target === modal) {
     modal.style.display = "none";
   }
-
 });
-
-// ================= CREATE DETAIL MODAL =================
+// ================= KERANGKA DETAIL BOOK =================
 document.body.insertAdjacentHTML("beforeend", `
-<div id="detailModal" class="detail-modal">
-  <div class="detail-content">
-    <button class="close-detail">&times;</button>
-
-    <div class="detail-left">
-      <img id="detailImg">
-    </div>
-
-    <div class="detail-right">
-      <h1 id="detailTitle"></h1>
-      <div class="title-line"></div>
-      <div class="start-scrol">
-        <div class="detail-grid">
-        
-          <div class="info-card">
-            <div class="info-icon green">👤</div>
-            <div>
-              <span>Pengarang</span>
-              <h3 id="detailAuthor"></h3>
+  <div id="detailModal" class="detail-modal">
+    <div class="detail-content">
+      <button class="close-detail">&times;</button>
+      <div class="detail-left">
+        <img id="detailImg">
+      </div>
+      <div class="detail-right">
+        <h1 id="detailTitle"></h1>
+        <div class="title-line"></div>
+        <div class="start-scrol">
+          <div class="detail-grid">
+            <div class="info-card">
+              <div class="info-icon green">👤</div>
+              <div>
+                <span>Pengarang</span>
+                <h3 id="detailAuthor"></h3>
+              </div>
+            </div>
+            <div class="info-card">
+              <div class="info-icon blue">📚</div>
+              <div>
+                <span>Kategori</span>
+                <h3 id="detailCategory"></h3>
+              </div>
+            </div>
+            <div class="info-card">
+              <div class="info-icon pink">🏢</div>
+              <div>
+                <span>Penerbit</span>
+                <h3 id="detailPublisher"></h3>
+              </div>
+            </div>
+            <div class="info-card">
+              <div class="info-icon purple">📅</div>
+              <div>
+                <span>Tahun</span>
+                <h3 id="detailYear"></h3>
+              </div>
             </div>
           </div>
-
-          <div class="info-card">
-            <div class="info-icon blue">📚</div>
-            <div>
-              <span>Kategori</span>
-              <h3 id="detailCategory"></h3>
+          <!-- ABSTRAK -->
+          <div class="abstract-box">
+            <h2>📖 Abstrak</h2>
+            <div class="abstract-content">
+              <p id="detailAbstract"></p>
             </div>
           </div>
-
-          <div class="info-card">
-            <div class="info-icon pink">🏢</div>
-            <div>
-              <span>Penerbit</span>
-              <h3 id="detailPublisher"></h3>
-            </div>
-          </div>
-
-          <div class="info-card">
-            <div class="info-icon purple">📅</div>
-            <div>
-              <span>Tahun</span>
-              <h3 id="detailYear"></h3>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- ABSTRAK -->
-        <div class="abstract-box">
-
-          <h2>📖 Abstrak</h2>
-
-          <div class="abstract-content">
-            <p id="detailAbstract"></p>
-          </div>
-
         </div>
       </div>
     </div>
-
   </div>
-
-</div>
-
 `);
+// ================= PANGGIL DETAIL BOOK =================
 function showDetail(index) {
   const books = getBooks();
   const book = books[index];
@@ -775,12 +631,10 @@ function showDetail(index) {
   document.getElementById("detailCategory").textContent = book.category;
   document.getElementById("detailPublisher").textContent = book.penerbit;
   document.getElementById("detailAbstract").textContent = book.abstract;
-  // ambil tahun dari penerbit
   const tahun = book.penerbit.match(/\d{4}/);
   document.getElementById("detailYear").textContent = tahun ? tahun[0] : "-";
   document.getElementById("detailModal").style.display = "flex";
 }
-
 // ================= EVENT LISTENER =================
 document.addEventListener("click", function (e) {
   // cari card
@@ -792,11 +646,13 @@ document.addEventListener("click", function (e) {
     if (confirm("Yakin hapus buku ini?")) {
       deleteBook(index);
     }
+    return;
   }
   // EDIT
   if (e.target.classList.contains("btn-edit")) {
     localStorage.setItem("editBookIndex", index);
     window.location.href = "admin-add-book.html";
+    return;
   }
   // DETAIL
   if (e.target.closest(".btn-detail")) {
@@ -804,3 +660,156 @@ document.addEventListener("click", function (e) {
   }
 });
 
+// ========================================================================================================================
+
+/* ================= CONTACT FORM ================= */
+const contactForm = document.getElementById("contactForm");
+if (contactForm) {
+  contactForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const nama = document.getElementById("nama").value;
+    const email = document.getElementById("email").value;
+    const subject = document.getElementById("subject").value;
+    const message = document.getElementById("message").value;
+    const messages = JSON.parse(localStorage.getItem("messages")) || [];
+    messages.push({
+      nama,
+      email,
+      subject,
+      message,
+      status: "Belum Dibaca",
+      tanggal: new Date().toLocaleString()
+    });
+    localStorage.setItem("messages", JSON.stringify(messages));
+    alert("Pesan berhasil dikirim!");
+    contactForm.reset();
+  });
+}
+
+
+/* ================= ADMIN MESSAGE ================= */
+const messageTableBody = document.getElementById("messageTableBody");
+const filterStatus = document.getElementById("filterStatus");
+const emptyMessage = document.getElementById("emptyMessage");
+function renderMessages() {
+  if (!messageTableBody) return;
+  const messages = JSON.parse(localStorage.getItem("messages")) || [];
+  const statusFilter = filterStatus ? filterStatus.value : "";
+  const filteredMessages = messages.filter(
+    msg => statusFilter === "" ||
+      msg.status === statusFilter
+  );
+  messageTableBody.innerHTML = "";
+  if (filteredMessages.length === 0) {
+    messageTableBody.innerHTML = `
+      <tr>
+          <td colspan="7"
+              style="
+                  text-align:center;
+                  padding:30px;
+                  color:#888;
+                  font-size:18px;
+              ">
+              📭 Belum ada pesan masuk
+          </td>
+      </tr>
+    `;
+    if (statusFilter !== "") {
+      emptyMessage.textContent = "🔍 Tidak ada pesan yang sesuai";
+    }
+    else {
+      emptyMessage.textContent = "📭 Belum ada pesan masuk";
+    }
+    return;
+  }
+  if (emptyMessage) { emptyMessage.style.display = "none"; }
+  filteredMessages.forEach((msg, index) => {
+    messageTableBody.innerHTML += `
+      <tr>
+          <td>${index + 1}</td>
+          <td>${msg.nama}</td>
+          <td>${msg.email}</td>
+          <td>${msg.subject}</td>
+          <td>
+              <span class="status ${msg.status === "Sudah Dibaca" ? "read" : "unread"}">
+                  ${msg.status}
+              </span>
+          </td>
+          <td class="table-action">
+              <button
+                  class="btn-read"
+                  data-index="${messages.indexOf(msg)}">
+                  Baca Pesan
+              </button>
+              <button
+                  class="btn-delete"
+                  data-index="${messages.indexOf(msg)}">
+                  Hapus
+              </button>
+          </td>
+      </tr>
+    `;
+  });
+}
+renderMessages();
+
+
+/* ================= BUTTON ACTION ================= */
+document.addEventListener("click", function (e) {
+  const messages = JSON.parse(localStorage.getItem("messages")) || [];
+  if (e.target.classList.contains("btn-read")) {
+    const index = e.target.dataset.index;
+    const msg = messages[index];
+    messageDetail.innerHTML = `
+      <div class="message-info">
+        <p>
+            <strong>👤 Nama</strong>
+            ${msg.nama}
+        </p>
+        <p>
+            <strong>📧 Email</strong>
+            ${msg.email}
+        </p>
+        <p>
+            <strong>📌 Subjek</strong>
+            ${msg.subject}
+        </p>
+      </div>
+      <div class="message-text">${msg.message}</div>
+    `;
+    messagePopup.style.display = "flex";
+    messages[index].status = "Sudah Dibaca";
+    localStorage.setItem("messages", JSON.stringify(messages));
+    renderMessages();
+    return;
+  }
+  if (e.target.classList.contains("btn-delete")) {
+    const index = e.target.dataset.index;
+    if (confirm("Yakin ingin menghapus pesan ini?")) {
+      messages.splice(index, 1);
+      localStorage.setItem("messages", JSON.stringify(messages));
+      renderMessages();
+    }
+    return;
+  }
+});
+
+
+/* ================= FILTER PESAN ================= */
+if (filterStatus) {
+  filterStatus.addEventListener(
+    "change",
+    renderMessages
+  );
+}
+const messagePopup = document.getElementById("messagePopup");
+const messageDetail = document.getElementById("messageDetail");
+const closeMessagePopup = document.getElementById("closeMessagePopup");
+closeMessagePopup.addEventListener("click", () => {
+  messagePopup.style.display = "none";
+});
+window.addEventListener("click", (e) => {
+  if (e.target === messagePopup) {
+    messagePopup.style.display = "none";
+  }
+});

@@ -907,3 +907,203 @@ textarea {
     height: 180px;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ================= POPUP PESAN ================= */
+
+.detail-popup {
+    display: none;
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    z-index: 9999;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+}
+
+.detail-content {
+
+    width: 700px;
+    max-width: 95%;
+
+    max-height: 85vh;
+    overflow-y: auto;
+
+    background: var(--popup-bg);
+
+    border: 1px solid var(--border-color);
+
+    border-radius: 20px;
+
+    padding: 30px;
+
+    position: relative;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, .35);
+
+    animation: popupShow .25s ease;
+}
+
+/* JUDUL */
+
+.detail-content h2 {
+
+    font-size: 2rem;
+
+    margin-bottom: 25px;
+
+    color: var(--popup-text);
+
+    border-bottom: 1px solid var(--border-color);
+
+    padding-bottom: 15px;
+}
+
+/* TOMBOL CLOSE */
+
+#closeMessagePopup {
+
+    position: absolute;
+
+    right: 20px;
+    top: 15px;
+
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 28px;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+#closeMessagePopup:hover {
+
+    background: rgba(255,255,255,.08);
+
+    transform: rotate(90deg);
+}
+
+/* INFO PENGIRIM */
+
+.message-info {
+
+    display: grid;
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+}
+
+.message-info p {
+
+    margin: 0;
+
+    font-size: 1rem;
+
+    line-height: 1.5;
+}
+
+.message-info strong {
+
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--popup-text);
+}
+
+/* ISI PESAN */
+
+.message-text {
+
+    background: rgba(255,255,255,.05);
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    border-radius: 15px;
+
+    padding: 20px;
+
+    line-height: 1.8;
+
+    font-size: 1rem;
+
+    word-break: break-word;
+
+    white-space: pre-wrap;
+
+    max-height: 350px;
+
+    overflow-y: auto;
+}
+
+
+
+/* ANIMASI */
+
+@keyframes popupShow {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}

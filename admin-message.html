@@ -83,10 +83,10 @@
         <!-- SEARCH -->
         <div class="gallery-controls">
           <input type="text" placeholder="Cari nama atau email..." />
-          <select>
-            <option>Semua Pesan</option>
-            <option>Belum Dibaca</option>
-            <option>Sudah Dibaca</option>
+          <select id="filterStatus">
+            <option value="">Semua Pesan</option>
+            <option value="Belum Dibaca">Belum Dibaca</option>
+            <option value="Sudah Dibaca">Sudah Dibaca</option>
           </select>
         </div>
 
@@ -100,45 +100,12 @@
                 <th>Nama</th>
                 <th>Email</th>
                 <th>Subjek</th>
-                <th>Pesan</th>
                 <th>Status</th>
                 <th>Aksi</th>
               </tr>
             </thead>
 
-            <tbody>
-
-              <tr>
-                <td>1</td>
-                <td>Kevin</td>
-                <td>kevin@gmail.com</td>
-                <td>Peminjaman Buku</td>
-                <td>Saya ingin menanyakan stok buku AI terbaru.</td>
-                <td>
-                  <span class="status unread">Belum Dibaca</span>
-                </td>
-                <td class="table-action">
-                  <button class="btn-detail">Detail</button>
-                  <button class="btn-delete">Hapus</button>
-                </td>
-              </tr>
-
-              <tr>
-                <td>2</td>
-                <td>Andi</td>
-                <td>andi@gmail.com</td>
-                <td>Perpustakaan</td>
-                <td>Jam buka perpustakaan sampai jam berapa?</td>
-                <td>
-                  <span class="status read">Sudah Dibaca</span>
-                </td>
-                <td class="table-action">
-                  <button class="btn-detail">Detail</button>
-                  <button class="btn-delete">Hapus</button>
-                </td>
-              </tr>
-
-            </tbody>
+            <tbody id="messageTableBody"></tbody>
 
           </table>
         </div>
@@ -146,6 +113,19 @@
       </main>
 
     </div>
+  </div>
+  <div id="messagePopup" class="detail-popup">
+
+    <div class="detail-content">
+
+      <span id="closeMessagePopup">&times;</span>
+
+      <h2>Pesan User</h2>
+
+      <div id="messageDetail"></div>
+
+    </div>
+
   </div>
   <script src="js/script.js"></script>
 </body>
