@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Katalog Perpustakaan</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" href="css/style-admin.css" />
 </head>
 
@@ -32,11 +33,6 @@
           <li>
             <a href="admin-home.html">
               <span>🏠</span> Dashboard
-            </a>
-          </li>
-          <li>
-            <a href="admin-add-book.html">
-              <span>📚</span> Add Book
             </a>
           </li>
           <li>
@@ -94,6 +90,13 @@
             </select>
 
             <button id="btnHapusSemua">🗑️ Hapus Semua</button>
+
+            <div class="btn-add">
+              <a href="admin-add-book.html">
+                <i class="fa-solid fa-plus"></i>
+                <span>Add Book</span>
+              </a>
+            </div>
           </div>
 
           <!-- GRID BOOK -->

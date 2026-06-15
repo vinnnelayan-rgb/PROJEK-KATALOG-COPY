@@ -10,58 +10,7 @@
 
 <body>
   <div class="container">
-    <input type="checkbox" id="navToggle" class="nav-toggle" />
-    <!-- ================= SIDEBAR ================= -->
-    <aside class="sidebar">
-
-      <!-- LOGO -->
-      <div class="logo">
-        <a href="admin-home.html">
-          <img src="src/logo mikro biru.webp" alt="Logo Mikro" />
-        </a>
-      </div>
-
-      <!-- NAVIGATION -->
-      <nav class="nav-menu">
-        <ul>
-          <li>
-            <a href="#" id="themeToggle">
-              <span>🌙</span> Dark Mode
-            </a>
-          </li>
-          <li>
-            <a href="admin-home.html">
-              <span>🏠</span> Dashboard
-            </a>
-          </li>
-          <li>
-            <a href="admin-add-book.html" class="active">
-              <span>📚</span> Add Book
-            </a>
-          </li>
-          <li>
-            <a href="admin-galeri.html">
-              <span>🖼️</span> Galeri
-            </a>
-          </li>
-          <li>
-            <a href="admin-message.html">
-              <span>💬</span> Message
-            </a>
-          </li>
-          <li>
-            <a href="index.html">
-              <span>🚪</span> Logout
-            </a>
-          </li>
-        </ul>
-      </nav>
-
-    </aside>
-
-
-    <!-- ================= MAIN CONTENT ================= -->
-    <div class="main-content">
+    <div class="main-content-add-book">
 
       <!-- HEADER -->
       <header class="topbar">
@@ -128,13 +77,9 @@
 
             <!-- ACTION -->
             <div class="form-actions">
-              <button type="submit" class="btn btn-primary" onclick="addBook()">
-                <span class="icon-add">+</span> Add
-              </button>
-
-              <button type="reset" class="btn btn-outline">
-                <span class="icon-reset">↺</span> Reset
-              </button>
+              <button type="submit" class="btn btn-primary" onclick="addBook()">Add</button>
+              <button type="reset" class="btn btn-outline">Reset</button>
+              <button class="btn btn-outline"><a href="admin-galeri.html">Cancel</a></button>
             </div>
 
             <!-- ERROR -->

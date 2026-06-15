@@ -858,11 +858,18 @@ select.komponen-advanced option {
 }
 .contact-card input::placeholder,
 .contact-card textarea::placeholder {
-  color: white;
+  color: rgba(255, 255, 255, 0.591);
   opacity: 0.8;
+  font-size: 18px;
+}
+.contact-card input,
+.contact-card textarea {
+  color: white;
+  font-size: 14;
 }
 .contact-card input{
   background: var(--overlay-dark-light);
+
 }
 .contact-card textarea {
   width: 100%;
@@ -871,7 +878,6 @@ select.komponen-advanced option {
   outline: none;
   border-radius: 10px;
   resize: none;
-  color: var(--text-primary);
   background: var(--overlay-dark-light);
 }
 .contact-card button {
