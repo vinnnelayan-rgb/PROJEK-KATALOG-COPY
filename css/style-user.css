@@ -602,17 +602,6 @@ select.komponen-advanced option {
   align-items: center;
   padding: 20px;
 }
-.detail-modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(6px);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-  padding: 20px;
-}
 .detail-content {
   background: var(--bg-card);
   width: 100%;
