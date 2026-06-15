@@ -454,7 +454,7 @@ function createCardAdmin(book, index) {
         <p>Kategori: ${book.category}</p>
         <div class="book-actions">
           <button class="btn-edit">Edit</button>
-          <button class="btn-delete">Hapus</button>
+          <button class="btn-delete btn-delete-book">Hapus</button>
         </div>
       </div>
     </div>
@@ -642,7 +642,7 @@ document.addEventListener("click", function (e) {
   if (!card) return;
   const index = card.dataset.index;
   // DELETE
-  if (e.target.classList.contains("btn-delete")) {
+  if (e.target.classList.contains("btn-delete-book")) {
     if (confirm("Yakin hapus buku ini?")) {
       deleteBook(index);
     }
@@ -661,6 +661,42 @@ document.addEventListener("click", function (e) {
 });
 
 // ========================================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* ================= CONTACT FORM ================= */
 const contactForm = document.getElementById("contactForm");
@@ -685,8 +721,6 @@ if (contactForm) {
     contactForm.reset();
   });
 }
-
-
 /* ================= ADMIN MESSAGE ================= */
 const messageTableBody = document.getElementById("messageTableBody");
 const filterStatus = document.getElementById("filterStatus");
@@ -742,7 +776,7 @@ function renderMessages() {
                   Baca Pesan
               </button>
               <button
-                  class="btn-delete"
+                  class="btn-delete btn-delete-message"
                   data-index="${messages.indexOf(msg)}">
                   Hapus
               </button>
@@ -752,38 +786,57 @@ function renderMessages() {
   });
 }
 renderMessages();
-
-
 /* ================= BUTTON ACTION ================= */
 document.addEventListener("click", function (e) {
   const messages = JSON.parse(localStorage.getItem("messages")) || [];
   if (e.target.classList.contains("btn-read")) {
     const index = e.target.dataset.index;
     const msg = messages[index];
-    messageDetail.innerHTML = `
-      <div class="message-info">
-        <p>
-            <strong>👤 Nama</strong>
-            ${msg.nama}
-        </p>
-        <p>
-            <strong>📧 Email</strong>
-            ${msg.email}
-        </p>
-        <p>
-            <strong>📌 Subjek</strong>
-            ${msg.subject}
-        </p>
+messageDetail.innerHTML = `
+  <div class="message-detail-card">
+
+    <div class="message-header">
+      <div class="message-avatar">
+        ${msg.nama.charAt(0).toUpperCase()}
       </div>
-      <div class="message-text">${msg.message}</div>
-    `;
+
+      <div class="message-header-info">
+        <h3>${msg.nama}</h3>
+        <p>${msg.email}</p>
+      </div>
+    </div>
+
+    <div class="message-meta">
+      <div class="meta-item">
+        <span>📌 Subjek</span>
+        <strong>${msg.subject}</strong>
+      </div>
+
+      <div class="meta-item">
+        <span>📅 Tanggal</span>
+        <strong>${msg.tanggal}</strong>
+      </div>
+
+      <div class="meta-item">
+        <span>📬 Status</span>
+        <strong>${msg.status}</strong>
+      </div>
+    </div>
+
+    <div class="message-content">
+      <h4>Isi Pesan</h4>
+      <p>${msg.message}</p>
+    </div>
+
+  </div>
+`;
     messagePopup.style.display = "flex";
     messages[index].status = "Sudah Dibaca";
     localStorage.setItem("messages", JSON.stringify(messages));
     renderMessages();
     return;
   }
-  if (e.target.classList.contains("btn-delete")) {
+  if (e.target.classList.contains("btn-delete-message")) {
     const index = e.target.dataset.index;
     if (confirm("Yakin ingin menghapus pesan ini?")) {
       messages.splice(index, 1);
@@ -793,8 +846,6 @@ document.addEventListener("click", function (e) {
     return;
   }
 });
-
-
 /* ================= FILTER PESAN ================= */
 if (filterStatus) {
   filterStatus.addEventListener(

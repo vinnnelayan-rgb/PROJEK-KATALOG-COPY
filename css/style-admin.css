@@ -670,6 +670,145 @@ textarea {
 }
 
 
+
+
+
+
+
+
+
+
+
+.message-popup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.message-popup-content {
+  width: 90%;
+  max-width: 800px;
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+#closeMessagePopup {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  border: none;
+  background: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.message-detail-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.message-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 15px;
+}
+
+.message-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #2563eb;
+  color: #fff;
+  font-size: 22px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.message-header-info h3 {
+  margin: 0;
+}
+
+.message-header-info p {
+  margin: 5px 0 0;
+  color: #777;
+}
+
+.message-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.meta-item {
+  background: #f5f5f5;
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.meta-item span {
+  display: block;
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 5px;
+}
+
+.message-content {
+  background: #fafafa;
+  border-radius: 10px;
+  padding: 18px;
+  line-height: 1.7;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ANIMASI */
 @keyframes popupShow {
     from {
