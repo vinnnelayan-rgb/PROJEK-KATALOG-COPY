@@ -678,18 +678,6 @@ textarea {
   color: #eee;
 }
 
-@keyframes popup {
-  from {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
 .detail-content img {
   width: 250px;
   height: 350px;
@@ -730,15 +718,7 @@ textarea {
   cursor: pointer;
 }
 
-
-
-
-
-
-
-
 /* ================= MESSAGE TABLE ================= */
-
 .table-container {
   overflow-x: auto;
 }
@@ -808,146 +788,6 @@ textarea {
   font-size: 12px;
   font-weight: 600;
 }
-
-
-
-/* ================= RESPONSIVE ================= */
-
-/* ===== TABLET ===== */
-@media (max-width: 1024px) {
-  .book-grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  }
-}
-
-/* ===== MOBILE ===== */
-@media (max-width: 768px) {
-
-  .sidebar {
-    transform: translateX(-100%);
-    transition: 0.3s ease;
-    z-index: 1000;
-  }
-
-  .sidebar.active {
-    transform: translateX(0);
-  }
-
-  .nav-overlay {
-    position: fixed;
-    inset: 0;
-    background: var(--overlay);
-    backdrop-filter: blur(2px);
-
-    opacity: 0;
-    pointer-events: none;
-
-    transition: 0.3s;
-    z-index: 900;
-  }
-
-  .nav-overlay.active {
-    opacity: 1;
-    pointer-events: all;
-  }
-
-  .main-content {
-    margin-left: 0;
-  }
-
-  .topbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .hamburger {
-    display: flex;
-  }
-
-  .nav-toggle:checked~.sidebar {
-    transform: translateX(0);
-  }
-
-  .detail-content {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .detail-content img {
-    width: 200px;
-    height: 280px;
-  }
-
-  .message-table {
-    min-width: 700px;
-  }
-}
-
-/* ===== SMALL MOBILE ===== */
-@media (max-width: 480px) {
-
-  main {
-    padding: 20px;
-  }
-
-  .card {
-    padding: 20px;
-  }
-
-  .topbar h1 {
-    font-size: 16px;
-  }
-
-  .book-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .book-card img {
-    height: 180px;
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* ================= POPUP PESAN ================= */
 
@@ -1106,4 +946,114 @@ textarea {
         opacity: 1;
         transform: translateY(0) scale(1);
     }
+}
+
+@keyframes popup {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+/* ===== TABLET ===== */
+@media (max-width: 1024px) {
+  .book-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+
+  .sidebar {
+    transform: translateX(-100%);
+    transition: 0.3s ease;
+    z-index: 1000;
+  }
+
+  .sidebar.active {
+    transform: translateX(0);
+  }
+
+  .nav-overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--overlay);
+    backdrop-filter: blur(2px);
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: 0.3s;
+    z-index: 900;
+  }
+
+  .nav-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-toggle:checked~.sidebar {
+    transform: translateX(0);
+  }
+
+  .detail-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .detail-content img {
+    width: 200px;
+    height: 280px;
+  }
+
+  .message-table {
+    min-width: 700px;
+  }
+}
+
+/* ===== SMALL MOBILE ===== */
+@media (max-width: 480px) {
+
+  main {
+    padding: 20px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .topbar h1 {
+    font-size: 16px;
+  }
+
+  .book-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .book-card img {
+    height: 180px;
+  }
 }
